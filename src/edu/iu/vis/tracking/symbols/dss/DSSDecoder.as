@@ -1,15 +1,74 @@
 package edu.iu.vis.tracking.symbols.dss {
 	
-	import flash.display.BitmapData;
-	import flash.geom.Point;
-	import flash.geom.Rectangle;
-	
+	import edu.iu.vis.tracking.Region;
 	import edu.iu.vis.utils.BitmapDataUtil;
 	import edu.iu.vis.utils.RectangleUtil;
 	import edu.iu.vis.utils.TrigUtil;
 	
-	public class DSSProcessor {
+	import flash.display.BitmapData;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	
+	public class DSSDecoder {
 		
+		public static const CODE_REGION:uint = 0;
+		public static const CENTROID_REGION:uint = 0;
+		public static const ORIENTATION_MARK_REGION:uint = 1;
+		
+		public static function Decode( bitmap:BitmapData, region:Region ):DSSymbol {
+			
+			// ONLY DECODES Region with '0121'
+			if ( region.relativeDepthSequence != '0121' )
+				return null;
+				
+			var dsColor:uint = 0xFFFFFFFF;
+			var p:Point = new Point();
+			
+			var dcx:Number = region.bounds.x;
+			var dcy:Number = region.bounds.y;
+			
+			var codeRegion:Region = region.children[CODE_REGION];
+			var centroidRegion:Region = codeRegion.children[CENTROID_REGION];
+			var omRegion:Region = region.children[ORIENTATION_MARK_REGION];
+			
+			var centroid:Point = RectangleUtil.Centroid( centroidRegion.bounds );
+			var omPoint:Point = RectangleUtil.Centroid( omRegion.bounds );
+			var rotation:Number = TrigUtil.DegreesFromOrigin( centroid, omPoint );
+			
+			var radius:Number = Math.max( region.bounds.width, region.bounds.height ) / 2;
+			
+			
+			var code:Array = new Array();
+			var ds:DSSymbol = new DSSymbol( null, rotation, radius );
+			
+			for ( var s:Number = 0; s < DSSConfig.Slice; s++ ) {
+				
+				var angle:Number = s * DSSConfig.SingleSliceDegrees + rotation;
+				
+				for ( var d:uint = 0; d <= DSSConfig.Depth; d++ ) {
+					var depth:uint = DSSConfig.Depth - d;
+					var point:Point = ds.getSlicePoint( angle, depth, true );
+					point.x -= dcx;
+					point.y -= dcy;
+					var pixel:uint = bitmap.getPixel32( point.x, point.y );
+					var match:Boolean = pixel == dsColor;
+
+					trace( s, d, pixel.toString(16), match );
+					BitmapDataUtil.StrokePoint( point, bitmap );
+					
+					if ( match ) {
+						code.push( depth );
+						break;
+					}
+				}
+			}
+			
+			trace( '//', code, rotation );
+			ds.code = code;
+			
+			return ds;
+		}
+		/*
 		public static function LocateBlobs( bitmap:BitmapData ):BitmapData {
 			
 			BitmapDataUtil.TwoBitBitmap( bitmap, true );
@@ -74,7 +133,7 @@ package edu.iu.vis.tracking.symbols.dss {
 				var b:BitmapData = new BitmapData( r.width, r.height );
 				b.copyPixels( bitmap, r, new Point() );
 				b.floodFill( 0, 0, 0xFFFFFF00 );
-				Decode( b );
+				//Decode( b );
 				//trace( '**', r, b.width );
 				//i++;
 				if (j++ == 0)
@@ -85,7 +144,7 @@ package edu.iu.vis.tracking.symbols.dss {
 			//	DSSUtil.StrokeRect( re, bitmap, 0x00FF00 );
 		}
 		
-		public static function Decode( bitmap:BitmapData, cen:Point = null, rot:Number = 0 ):DSSymbol {
+		public static function _Decode( bitmap:BitmapData, cen:Point = null, rot:Number = 0 ):DSSymbol {
 			
 			var dsColor:uint = 0xFF00FF00;
 			var p:Point = new Point();
@@ -155,6 +214,6 @@ package edu.iu.vis.tracking.symbols.dss {
 			
 			return ds;
 		}
-
+*/
 	}
 }

@@ -104,8 +104,10 @@ package edu.iu.vis.tracking {
 			return matches;
 		}
 		
-		public function printRegion( region:Region ):void {
-			region.print( bitmapData );
+		public function printRegion( region:Region, copySource:Boolean = true ):BitmapData {
+			var bitmap:BitmapData = copySource ? bitmapData.clone() : bitmapData;
+			region.print( bitmap );
+			return bitmap;
 		}
 		
 		public function registerRegion( region:Region ):void {

@@ -42,5 +42,11 @@ package edu.iu.vis.utils {
 			return rectangles;
 		}
 		
+		public static function ApproachingSquare( rect:Rectangle, deviance:Number = 0 ):Boolean {
+			var ratio:Number = rect.height / rect.width;
+			deviance = ( deviance < 0 ) ? 0 : ( deviance > 1 ? 1 : deviance );
+			return ( ratio >= 1 - deviance && ratio <= 1 + deviance );
+		}
+		
 	}
 }
