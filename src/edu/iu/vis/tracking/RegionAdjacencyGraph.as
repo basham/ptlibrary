@@ -33,7 +33,7 @@ package edu.iu.vis.tracking {
 		
 		private function graphRegion( region:Region ):void {
 			
-			var bitColor:uint = DepthToBit( region.depth );
+			var bitColor:uint = region.bitColor;
 			
 			// Find all child-regions of the given region
 			while(true) {
@@ -122,15 +122,12 @@ package edu.iu.vis.tracking {
 		
 		public function printBounds():void {
 			for each( var r:Region in regions )
-				BitmapDataUtil.StrokeRect( ( r as Region ).bounds, bitmapData, ( r as Region ).depth % 2 == 0 ? 0xFF0000 : 0xFFFF00 );
-		}
-		
-		public static function DepthToBit( depth:uint ):uint {
-			return ( depth % 2 == 0 ? 0xFFFFFFFF : 0xFF000000 );
+				BitmapDataUtil.StrokeRect( ( r as Region ).bounds, bitmapData, ( r as Region ).bit ? 0xFF0000 : 0xFFFF00 );
 		}
 		
 		public function depthToColor( depth:uint ):uint {
 			return Colors[ depth % Colors.length ];
 		}
+		
 	}
 }

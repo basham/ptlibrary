@@ -7,7 +7,6 @@ package edu.iu.vis.tracking.symbols.dss {
 	
 	import flash.display.BitmapData;
 	import flash.geom.Point;
-	import flash.geom.Rectangle;
 	
 	public class DSSDecoder {
 		
@@ -20,50 +19,56 @@ package edu.iu.vis.tracking.symbols.dss {
 			// ONLY DECODES Region with '0121'
 			if ( region.relativeDepthSequence != '0121' )
 				return null;
-				
-			var dsColor:uint = 0xFFFFFFFF;
-			var p:Point = new Point();
 			
-			var dcx:Number = region.bounds.x;
-			var dcy:Number = region.bounds.y;
+			// Identify child regions in symbol region
+			var codeRegion:Region = region.children[CODE_REGION]; // First child of symbol region
+			var centroidRegion:Region = codeRegion.children[CENTROID_REGION]; // First child of code region
+			var omRegion:Region = region.children[ORIENTATION_MARK_REGION]; // Second child of symbol region
 			
-			var codeRegion:Region = region.children[CODE_REGION];
-			var centroidRegion:Region = codeRegion.children[CENTROID_REGION];
-			var omRegion:Region = region.children[ORIENTATION_MARK_REGION];
-			
+			// Rotation is calculated by the angle between the Centroid, Orientation Mark points
 			var centroid:Point = RectangleUtil.Centroid( centroidRegion.bounds );
 			var omPoint:Point = RectangleUtil.Centroid( omRegion.bounds );
 			var rotation:Number = TrigUtil.DegreesFromOrigin( centroid, omPoint );
 			
-			var radius:Number = Math.max( region.bounds.width, region.bounds.height ) / 2;
+			// Radius is roughly calculated by looking at the bounds of the symbol region
+			var radius:Number = RectangleUtil.Radius( region.bounds );
 			
-			
+			// Prepare variables for decoding
+			var dsColor:uint = codeRegion.bitColor;
+			var dcx:Number = region.bounds.x; // Point x offset
+			var dcy:Number = region.bounds.y; // Point y offset
 			var code:Array = new Array();
 			var ds:DSSymbol = new DSSymbol( null, rotation, radius );
 			
+			// Decode the code region
 			for ( var s:Number = 0; s < DSSConfig.Slice; s++ ) {
 				
+				// Calculates the relative angles to look for coded depth values
 				var angle:Number = s * DSSConfig.SingleSliceDegrees + rotation;
 				
-				for ( var d:uint = 0; d <= DSSConfig.Depth; d++ ) {
-					var depth:uint = DSSConfig.Depth - d;
-					var point:Point = ds.getSlicePoint( angle, depth, true );
-					point.x -= dcx;
-					point.y -= dcy;
+				// Search outside-in
+				for ( var d:uint = DSSConfig.Depth; d >= 0; d-- ) {
+					
+					// Find point to look for a coded value
+					var point:Point = ds.getSlicePoint( angle, d, true );
+					point.x += dcx;
+					point.y += dcy;
+					
+					// Check match
 					var pixel:uint = bitmap.getPixel32( point.x, point.y );
 					var match:Boolean = pixel == dsColor;
 
-					trace( s, d, pixel.toString(16), match );
+					//trace( s, d, point, pixel.toString(16), match );
 					BitmapDataUtil.StrokePoint( point, bitmap );
 					
 					if ( match ) {
-						code.push( depth );
+						code.push( d );
 						break;
 					}
 				}
 			}
-			
-			trace( '//', code, rotation );
+
+			// Apply code to symbol
 			ds.code = code;
 			
 			return ds;

@@ -27,6 +27,10 @@ package edu.iu.vis.tracking {
 			return depth % 2 == 0;
 		}
 		
+		public function get bitColor():uint {
+			return ( bit ? 0xFFFFFFFF : 0xFF000000 );
+		}
+		
 		public function get depth():uint {
 			return _depth;
 		}
@@ -95,7 +99,7 @@ package edu.iu.vis.tracking {
 		}
 		
 		public function print( sourceBitmapData:BitmapData ):void {
-			sourceBitmapData.floodFill( fillPoint.x, fillPoint.y, RegionAdjacencyGraph.DepthToBit( depth + 1 ) );
+			sourceBitmapData.floodFill( fillPoint.x, fillPoint.y, bitColor );
 			for each( var child:Region in children )
 				( child as Region ).print( sourceBitmapData );
 		}
@@ -135,6 +139,6 @@ package edu.iu.vis.tracking {
 				seq += int( depthSequence.charAt(i) ) + depth;
 			return seq;
 		}
-
+		
 	}
 }

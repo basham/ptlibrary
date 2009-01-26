@@ -48,5 +48,9 @@ package edu.iu.vis.utils {
 			return ( ratio >= 1 - deviance && ratio <= 1 + deviance );
 		}
 		
+		public static function Radius( rect:Rectangle ):Number {
+			return Math.max( rect.width, rect.height ) / 2;
+		}
+		
 	}
 }

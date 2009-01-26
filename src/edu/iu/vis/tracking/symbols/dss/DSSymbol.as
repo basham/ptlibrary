@@ -14,6 +14,7 @@ package edu.iu.vis.tracking.symbols.dss {
 		private var _rotation:Number;
 		private var _radius:Number;
 		private var _centroid:Point;
+		//public var 
 		
 		public var enableDraw:Boolean = false;
 		
