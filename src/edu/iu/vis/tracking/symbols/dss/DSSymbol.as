@@ -1,13 +1,13 @@
 package edu.iu.vis.tracking.symbols.dss {
 	
+	import edu.iu.vis.utils.ArrayUtil;
+	import edu.iu.vis.utils.DisplayUtil;
+	import edu.iu.vis.utils.TrigUtil;
+	
 	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.geom.Point;
 	
-	import edu.iu.vis.utils.ArrayUtil;
-	import edu.iu.vis.utils.DisplayUtil;
-	import edu.iu.vis.utils.TrigUtil;
-
 	public class DSSymbol {
 		
 		private var _code:Array;
