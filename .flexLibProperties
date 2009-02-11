@@ -19,10 +19,11 @@
 <classEntry path="fl.transitions.easing.Regular"/>
 <classEntry path="fl.transitions.Zoom"/>
 <classEntry path="fl.motion.easing.Quadratic"/>
-<classEntry path="edu.iu.vis.tracking.symbols.dss.DSSDecoder"/>
 <classEntry path="fl.transitions.easing.Bounce"/>
 <classEntry path="fl.motion.BezierSegment"/>
 <classEntry path="fl.motion.RotateDirection"/>
+<classEntry path="edu.iu.vis.tracking.Tuio2DObjEventMessage"/>
+<classEntry path="edu.iu.vis.tracking.Tuio2DObjMessage"/>
 <classEntry path="edu.iu.vis.utils.ArrayUtil"/>
 <classEntry path="edu.iu.vis.utils.TrigUtil"/>
 <classEntry path="fl.motion.BezierEase"/>
@@ -54,6 +55,7 @@
 <classEntry path="fl.motion.Motion"/>
 <classEntry path="fl.transitions.TweenEvent"/>
 <classEntry path="fl.motion.easing.Quintic"/>
+<classEntry path="edu.iu.vis.tracking.symbols.dss.DSSDecoder"/>
 <classEntry path="fl.transitions.Rotate"/>
 <classEntry path="edu.iu.vis.utils.DisplayUtil"/>
 <classEntry path="edu.iu.vis.utils.Util"/>

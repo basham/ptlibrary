@@ -48,7 +48,15 @@ package edu.iu.vis.tracking.symbols.dss {
 			_code = ArrayUtil.FitToLength( value, DSSConfig.Slice );
 			draw();
 		}
-
+		
+		public function get codeString():String {
+			return ArrayUtil.ToSimpleString( code );
+		}
+		
+		public function get codeInt():uint {
+			return int(codeString);
+		}
+		
 		public function get rotation():Number {
 			return _rotation;
 		}

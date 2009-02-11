@@ -16,5 +16,12 @@ package edu.iu.vis.utils {
 			return array;
 		}
 
+		public static function ToSimpleString( array:Array ):String {
+			var s:String = '';
+			for each( var a:String in array )
+				s += a;
+			return s;
+		}
+
 	}
 }
