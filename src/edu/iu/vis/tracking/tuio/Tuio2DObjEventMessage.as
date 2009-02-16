@@ -1,4 +1,4 @@
-package edu.iu.vis.tracking {
+package edu.iu.vis.tracking.tuio {
 	
 	import it.h_umus.tuio.Tuio2DObj;
 	import it.h_umus.tuio.events.Tuio2DObjEvent;

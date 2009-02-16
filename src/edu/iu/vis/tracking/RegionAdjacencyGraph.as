@@ -28,7 +28,6 @@ package edu.iu.vis.tracking {
 			BitmapDataUtil.TwoBitBitmap( bitmapData );
 			root = new Region( 0, bitmapData.rect, new Point(), this );
 			graphRegion( root );
-			trace( this.toString() );
 		}
 		
 		private function graphRegion( region:Region ):void {
