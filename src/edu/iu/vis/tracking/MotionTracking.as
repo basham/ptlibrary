@@ -5,6 +5,8 @@ package edu.iu.vis.tracking {
 	import flash.filters.ColorMatrixFilter;
 	import flash.geom.Point;
 	
+	import edu.iu.vis.utils.BitmapDataUtil;
+	
 	public class MotionTracking {
 		
 		private var prevTrackingData:BitmapData;
@@ -27,6 +29,10 @@ package edu.iu.vis.tracking {
 			prevTrackingData = new BitmapData(w, h);
 			currTrackingData = new BitmapData(w, h);
 			diffTrackingData = new BitmapData(w, h);
+		}
+		
+		public function get filteredBitmapData():BitmapData {
+			return diffTrackingData;
 		}
 		
 		public function track( source:BitmapData ):void {
@@ -56,10 +62,12 @@ package edu.iu.vis.tracking {
 			diffTrackingData.applyFilter( diffTrackingData, diffTrackingData.rect, p, blur );
 			
 			// Removes grey from blobs, making them more solid shapes
-			diffTrackingData.threshold(diffTrackingData, diffTrackingData.rect, p, ">", 0x00000000, 0x00FFFF00, 0x00FF0000, false);
+			BitmapDataUtil.TwoBitBitmap( diffTrackingData, .01 );
 			
-			// TODO:
-			// - Produce RegionAdjacencyGraph
+			var rag:RegionAdjacencyGraph = new RegionAdjacencyGraph( diffTrackingData );
+			rag.graph();
+			rag.printBounds();
+			trace( rag.toString() );
 		}
 
 	}

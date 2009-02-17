@@ -2,7 +2,7 @@ package edu.iu.vis.tracking.tuio {
 	
 	import edu.iu.vis.tracking.RegionAdjacencyGraph;
 	import edu.iu.vis.tracking.tuio.profiles.ITuioInterpreterProfile;
-	import edu.iu.vis.utils.Util;
+	import edu.iu.vis.utils.NumberUtil;
 	
 	import flash.display.BitmapData;
 	import flash.events.EventDispatcher;
@@ -59,9 +59,9 @@ package edu.iu.vis.tracking.tuio {
 				if ( tuio.i != t.i ) // Candidate match only if Class Id matches
 					continue;
 				
-				var xDiffPerc:Number = Util.PercentDifferenceRange( tuio.x, t.x, W );
-				var yDiffPerc:Number = Util.PercentDifferenceRange( tuio.y, t.y, H );
-				var aDiffPerc:Number = Util.PercentDifferenceRange( tuio.a, t.a, 180 );
+				var xDiffPerc:Number = NumberUtil.PercentDifferenceRange( tuio.x, t.x, W );
+				var yDiffPerc:Number = NumberUtil.PercentDifferenceRange( tuio.y, t.y, H );
+				var aDiffPerc:Number = NumberUtil.PercentDifferenceRange( tuio.a, t.a, 180 );
 
 				var diff:Number = xDiffPerc * yDiffPerc * aDiffPerc; // Combine the diffs into a single, comparable value
 				

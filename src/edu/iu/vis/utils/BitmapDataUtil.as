@@ -22,12 +22,12 @@ package edu.iu.vis.utils {
 		}
 		
 		// TODO: Retain all transparency?
-		public static function TwoBitBitmap( bitmap:BitmapData, ignoreTransparency:Boolean = true ):void {
+		public static function TwoBitBitmap( bitmap:BitmapData, ratio:Number = .5 ):void {
 			var p:Point = new Point();
 			var mask:uint = 0xFFFFFFFF;
 			var colorHigh:uint = 0xFFFFFFFF;
 			var colorLow:uint = 0xFF000000;
-			var thresh:uint = ( ( colorHigh - colorLow ) / 2 ) + colorLow;
+			var thresh:uint = ( ( colorHigh - colorLow ) * NumberUtil.CleanPercentage(ratio) ) + colorLow;
 			
 			bitmap.threshold( bitmap, bitmap.rect, p, ">", thresh, colorHigh, mask, false );
 			bitmap.threshold( bitmap, bitmap.rect, p, "<=", thresh, colorLow, mask, false );
