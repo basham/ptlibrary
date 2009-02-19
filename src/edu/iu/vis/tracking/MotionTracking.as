@@ -1,11 +1,11 @@
 package edu.iu.vis.tracking {
 	
+	import edu.iu.vis.utils.BitmapDataUtil;
+	
 	import flash.display.BitmapData;
 	import flash.filters.BlurFilter;
 	import flash.filters.ColorMatrixFilter;
 	import flash.geom.Point;
-	
-	import edu.iu.vis.utils.BitmapDataUtil;
 	
 	public class MotionTracking {
 		
@@ -35,7 +35,7 @@ package edu.iu.vis.tracking {
 			return diffTrackingData;
 		}
 		
-		public function track( source:BitmapData ):void {
+		public function track( source:BitmapData ):RegionAdjacencyGraph {
 			// Redraw video stream
 			//camData.draw(video);
 			
@@ -67,7 +67,8 @@ package edu.iu.vis.tracking {
 			var rag:RegionAdjacencyGraph = new RegionAdjacencyGraph( diffTrackingData );
 			rag.graph();
 			rag.printBounds();
-			trace( rag.toString() );
+			//trace( rag.toString() );
+			return rag;
 		}
 
 	}
