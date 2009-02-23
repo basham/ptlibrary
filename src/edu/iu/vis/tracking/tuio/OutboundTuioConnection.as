@@ -1,7 +1,6 @@
 package edu.iu.vis.tracking.tuio {
 	
-	import edu.iu.vis.tracking.tuio.Tuio2DObjEventMessage;
-	import it.h_umus.tuio.Tuio2DObj;
+	import it.h_umus.tuio.events.Tuio2DObjEvent;
 	
 	public class OutboundTuioConnection extends AbstractTuioConnection {
 		
@@ -9,9 +8,9 @@ package edu.iu.vis.tracking.tuio {
 			super( connectionName, false );
 		}
 		
-		public function sendObjEvent( eventType:String, tuioObj:Tuio2DObj ):void {
-			trace( connectionName);
-			connection.send( connectionName, "tuioDispatcher", new Tuio2DObjEventMessage( eventType, tuioObj ) );
+		public function sendObjEvent( tuioObjEvent:Tuio2DObjEvent ):void {
+			trace( 'Sending to:', connectionName );
+			connection.send( connectionName, "tuioDispatcher", new Tuio2DObjEventMessage( tuioObjEvent ) );
 		}
 	}
 }

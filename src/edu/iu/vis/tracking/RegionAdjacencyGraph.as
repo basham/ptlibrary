@@ -44,21 +44,28 @@ package edu.iu.vis.tracking {
 				if ( RectangleUtil.Boundless( candidateBound ) )
 					break;
 				
-				// Find the first pixel point in a candidate child-region 
+				// Find the first pixel point in a candidate child region 
 				var point:Point = BitmapDataUtil.SelectClosestColor( bitColor, bitmapData, candidateBound, '==' );
 				
 				// No point found; end search
 				if ( !point )
 					break;
 
-				// Find bounds of the child-region
-				var childBound:Rectangle = BitmapDataUtil.GetPointRegionBoundingRect( bitmapData, point, depthToColor( region.depth ), UniqueColor );
+				// Find bounds of the candidate child region
+				var childBound:Rectangle = BitmapDataUtil.GetBoundingRectFromPointRegion( bitmapData, point, depthToColor( region.depth ), UniqueColor );
 				
-				// Instantiate and register the child-region
+				// If the candidate child region is not bounded within the parent region, it belongs to another parent region;
+				// or if the regions' sides intersect then it is an "edging" region to be ignored; skip them.
+				// Since all regions will edge the root region, only use this conditional if this is a sub-region.
+				if ( region.depth > 0 )
+					if ( !region.bounds.containsRect( childBound ) || RectangleUtil.AnySidesIntersect( childBound, region.bounds ) )
+						continue;
+				
+				// Instantiate and register the child region
 				var child:Region = new Region( region.depth + 1, childBound, point, this );
 				region.registerChild( child );
 				
-				// Recursively search to find child-regions of the child-region
+				// Recursively search to find child regions of the child region
 				graphRegion( child );
 			}
 

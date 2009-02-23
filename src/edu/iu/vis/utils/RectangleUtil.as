@@ -52,5 +52,9 @@ package edu.iu.vis.utils {
 			return Math.max( rect.width, rect.height ) / 2;
 		}
 		
+		public static function AnySidesIntersect( rect1:Rectangle, rect2:Rectangle ):Boolean {
+			return ( rect1.top == rect2.top || rect1.right == rect2.right || rect1.bottom == rect2.bottom || rect1.left == rect2.left );
+		}
+		
 	}
 }

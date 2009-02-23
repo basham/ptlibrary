@@ -36,7 +36,7 @@ package edu.iu.vis.utils {
 		// Find the bounding rectangular region of a blob containing the given point
 		// The unique color must not be present in the sourceBitmapData, otherwise, you get false results
 		// TODO: automatically find a unique color
-		public static function GetPointRegionBoundingRect( sourceBitmapData:BitmapData, point:Point, fillColor:uint = 0xFFFFF000,
+		public static function GetBoundingRectFromPointRegion( sourceBitmapData:BitmapData, point:Point, fillColor:uint = 0xFFFFF000,
 			uniqueColor:uint = 0xFFFFFF00, copySource:Boolean = false ):Rectangle {
 			
 			var bitmap:BitmapData = copySource ? sourceBitmapData.clone() : sourceBitmapData;

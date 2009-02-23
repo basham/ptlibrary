@@ -8,13 +8,17 @@ package edu.iu.vis.tracking.tuio {
 		public var type:String = '';
 		public var data:Tuio2DObjMessage;
 		
-		public function Tuio2DObjEventMessage( type:String = '', data:Tuio2DObj = null ) {
-			this.type = type;
-			if ( data != null )
-				setData( data );
+		public function Tuio2DObjEventMessage( tuioEvent:Tuio2DObjEvent = null ) {
+			if ( tuioEvent != null )
+				setMessage( tuioEvent.type, tuioEvent.data );
 		}
 		
-		private function setData( value:Tuio2DObj ):void {
+		public function setMessage( type:String, data:Tuio2DObj ):void {
+			this.type = type;
+			convertData( data );
+		}
+		
+		private function convertData( value:Tuio2DObj ):void {
 			data = Tuio2DObjMessage.GenerateTuio2DObjMessage( value );
 		}
 

@@ -11,6 +11,22 @@ package edu.iu.vis.tracking.tuio {
 	import it.h_umus.tuio.Tuio2DObj;
 	import it.h_umus.tuio.events.Tuio2DObjEvent;
 	
+	/**
+     * @eventType it.h_umus.tuio.events.Tuio2DObjEvent.ADD_TUIO_2D_OBJ
+     **/
+    [Event(name="addTuio2DObj", type="it.h_umus.tuio.events.Tuio2DObjEvent")]
+    
+    /**
+     * @eventType it.h_umus.tuio.events.Tuio2DObjEvent.UPDATE_TUIO_2D_OBJ
+     **/
+    [Event(name="updateTuio2DObj", type="it.h_umus.tuio.events.Tuio2DObjEvent")]
+    
+    /**
+     * @eventType it.h_umus.tuio.events.Tuio2DObjEvent.REMOVE_TUIO_2D_OBJ
+     **/
+    [Event(name="removeTuio2DObj", type="it.h_umus.tuio.events.Tuio2DObjEvent")]
+
+	
 	public class TuioInterpreter extends EventDispatcher {
 		
 		private var sessions:Dictionary = new Dictionary(true);
@@ -19,8 +35,8 @@ package edu.iu.vis.tracking.tuio {
 		private var _outboundConnection:OutboundTuioConnection;
 		private var profiles:Array = new Array();
 		
-		private const W:uint = 320;
-		private const H:uint = 240;
+		private var sourceWidth:uint = 320;
+		private var sourceHeight:uint = 240;
 		private const SESSION_DIFF_THRESHOLD:Number = .025;
 		
 		public function TuioInterpreter() {
@@ -40,6 +56,9 @@ package edu.iu.vis.tracking.tuio {
 		}
 
 		public function interpret( source:BitmapData ):void {
+			sourceWidth = source.width;
+			sourceHeight = source.height;
+			
 			var rag:RegionAdjacencyGraph = new RegionAdjacencyGraph( source );
 			rag.graph();
 			
@@ -59,8 +78,8 @@ package edu.iu.vis.tracking.tuio {
 				if ( tuio.i != t.i ) // Candidate match only if Class Id matches
 					continue;
 				
-				var xDiffPerc:Number = NumberUtil.PercentDifferenceRange( tuio.x, t.x, W );
-				var yDiffPerc:Number = NumberUtil.PercentDifferenceRange( tuio.y, t.y, H );
+				var xDiffPerc:Number = NumberUtil.PercentDifferenceRange( tuio.x, t.x, sourceWidth );
+				var yDiffPerc:Number = NumberUtil.PercentDifferenceRange( tuio.y, t.y, sourceHeight );
 				var aDiffPerc:Number = NumberUtil.PercentDifferenceRange( tuio.a, t.a, 180 );
 
 				var diff:Number = xDiffPerc * yDiffPerc * aDiffPerc; // Combine the diffs into a single, comparable value
@@ -88,8 +107,12 @@ package edu.iu.vis.tracking.tuio {
 			// Broadcast event
 			trace(tuio.s, tuio.i, tuio.x, tuio.y, tuio.a);
 			
+			var event:Tuio2DObjEvent = new Tuio2DObjEvent( Tuio2DObjEvent.UPDATE_TUIO_2D_OBJ, tuio );
+			
+			this.dispatchEvent( event );
+			
 			if ( outboundConnection )
-				outboundConnection.sendObjEvent( Tuio2DObjEvent.UPDATE_TUIO_2D_OBJ, tuio );
+				outboundConnection.sendObjEvent( event );
 		}
 	}
 }
