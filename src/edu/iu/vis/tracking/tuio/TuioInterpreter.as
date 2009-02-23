@@ -29,17 +29,24 @@ package edu.iu.vis.tracking.tuio {
 	
 	public class TuioInterpreter extends EventDispatcher {
 		
-		private var sessions:Dictionary = new Dictionary(true);
-		
-		private var sessionCount:uint = 0;
-		private var _outboundConnection:OutboundTuioConnection;
-		private var profiles:Array = new Array();
-		
-		private var sourceWidth:uint = 320;
-		private var sourceHeight:uint = 240;
 		private const SESSION_DIFF_THRESHOLD:Number = .025;
 		
+		private var sessions:Dictionary = new Dictionary(true);
+		private var aliveSessions:Dictionary;
+		private var profiles:Array = new Array();
+		
+		private var _outboundConnection:OutboundTuioConnection;
+
+		private var _frame:uint = 0;
+		private var sessionCount:uint = 0;
+		private var sourceWidth:uint = 320;
+		private var sourceHeight:uint = 240;
+		
 		public function TuioInterpreter() {
+		}
+		
+		public function get frame():uint {
+			return _frame;
 		}
 		
 		public function get outboundConnection():OutboundTuioConnection {
@@ -58,12 +65,17 @@ package edu.iu.vis.tracking.tuio {
 		public function interpret( source:BitmapData ):void {
 			sourceWidth = source.width;
 			sourceHeight = source.height;
+			aliveSessions = new Dictionary(true);
 			
 			var rag:RegionAdjacencyGraph = new RegionAdjacencyGraph( source );
 			rag.graph();
 			
 			for each( var profile:ITuioInterpreterProfile in profiles ) // Loop through profiles, each interpreting the graph
 				profile.interpretGraph( rag );
+			
+			removeDeadSessions();
+			
+			_frame++;
 		}
 
 		public function generateEventFromObj( tuio:Tuio2DObj ):void {
@@ -92,27 +104,41 @@ package edu.iu.vis.tracking.tuio {
 				bestSessionDiff = diff;
 			}
 			
+			// Establish session for this Tuio2DObj
+			var newSession:Boolean = ( bestSessionDiff < SESSION_DIFF_THRESHOLD );
+			var s:uint = newSession ? bestSessionMatch : sessionCount++;
+			tuio.s = s;
+			
+			if ( !newSession ) {
 			/*
 			* TODO:
 			*  - Calculate X, Y, A vector values
-			*  - Derive proper Event name
-			*  - Dispatch events within self
-			*/
+			*/	
+			}
 			
-			// Establish session for this Tuio2DObj
-			var s:uint = ( bestSessionDiff < SESSION_DIFF_THRESHOLD ) ? bestSessionMatch : sessionCount++;
-			tuio.s = s;
 			sessions[ s ] = tuio;
+			aliveSessions[ s ] = true;
 			
 			// Broadcast event
 			trace(tuio.s, tuio.i, tuio.x, tuio.y, tuio.a);
-			
-			var event:Tuio2DObjEvent = new Tuio2DObjEvent( Tuio2DObjEvent.UPDATE_TUIO_2D_OBJ, tuio );
-			
-			this.dispatchEvent( event );
-			
+			dispatchObjEvent( new Tuio2DObjEvent( ( newSession ? Tuio2DObjEvent.ADD_TUIO_2D_OBJ : Tuio2DObjEvent.UPDATE_TUIO_2D_OBJ ), tuio ) );
+		}
+		
+		private function removeDeadSessions():void {
+			for ( var sessionKey:String in sessions )
+				if ( aliveSessions[ sessionKey ] != true )
+					removeSession( sessionKey );
+		}
+
+		private function removeSession( sessionKey:String ):void {
+			dispatchObjEvent( new Tuio2DObjEvent( Tuio2DObjEvent.REMOVE_TUIO_2D_OBJ, sessions[ sessionKey ] as Tuio2DObj ) );
+			sessions[ sessionKey ] = null;
+		}
+
+		private function dispatchObjEvent( tuioEvent:Tuio2DObjEvent ):void {
+			this.dispatchEvent( tuioEvent );
 			if ( outboundConnection )
-				outboundConnection.sendObjEvent( event );
+				outboundConnection.sendObjEvent( tuioEvent );
 		}
 	}
 }
