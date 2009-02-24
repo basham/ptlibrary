@@ -37,6 +37,10 @@ package edu.iu.vis.tracking {
 			// Find all child-regions of the given region
 			while(true) {
 				
+				// In rare cases, the region does not have a bound
+				if ( RectangleUtil.Boundless( region.bounds ) )
+					break;
+					
 				// Find bound containing all the regions of a certain depth in the parent region
 				var candidateBound:Rectangle = BitmapDataUtil.GetSmartColorBoundsRect( bitmapData, region.bounds, 0xFFFFFFFF, bitColor );
 				
