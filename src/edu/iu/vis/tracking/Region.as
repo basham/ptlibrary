@@ -1,5 +1,7 @@
 package edu.iu.vis.tracking {
 	
+	import edu.iu.vis.utils.RectangleUtil;
+	
 	import flash.display.BitmapData;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
@@ -63,6 +65,58 @@ package edu.iu.vis.tracking {
 			_absoluteDepthSequence = Region.TranslateDepthSequence( relativeDepthSequence, depth );
 			
 			return _absoluteDepthSequence;
+		}
+		
+		public function get centroid():Point {
+			return RectangleUtil.Centroid( bounds );
+		}
+		
+		public function getRegionsByNumChildren( numChildren:uint = 1 ):Array {
+			
+			var matches:Array = new Array();
+			
+			for each( var r:Region in children )
+				if ( r.children.length == numChildren )
+					matches.push( r );
+			
+			return matches;
+		}
+		
+		/*
+		compareBit
+			0: Matches regions with any bit value
+			1: Matches regions with TRUE/even bit values
+			-1: Matches regions with FALSE/odd bit values
+		*/
+		
+		public function getRegionsMatchingDepthSequence( pattern:*, compareBit:Number = 0, matchAbsoluteDepthSequence:Boolean = false ):Array {
+			
+			var matches:Array = new Array();
+			
+			for each( var r:Region in children ) {
+				var sequence:String = matchAbsoluteDepthSequence ? r.absoluteDepthSequence : r.relativeDepthSequence;
+				var match:Boolean = false;
+				if ( sequence.search( pattern ) != -1 ) {
+					switch( compareBit ) {
+						case 0:
+							match = true;
+							break;
+						case 1:
+							if ( r.bit )
+								match = true;
+							break;
+						case -1:
+							if ( !r.bit )
+								match = true;
+							break;
+					}
+				}
+				
+				if ( match )
+					matches.push( r );
+			}
+			
+			return matches;
 		}
 		
 		public function leftHeavySortChildren():void {

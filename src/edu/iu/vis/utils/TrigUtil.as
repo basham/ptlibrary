@@ -51,6 +51,16 @@ package edu.iu.vis.utils {
 		public static function PointFromArc( point:Point, radians:Number, arc:Number ):Point {
 			return new Point( arc * Math.cos( radians ) + point.x, arc * Math.sin( radians ) + point.y );
 		}
+		
+		public static function AvgPoint( points:Array ):Point {
+			var x:Number = 0;
+			var y:Number = 0;
+			for each( var p:Point in points ) {
+				x += p.x;
+				y += p.y;
+			}
+			return new Point( Math.round( x / points.length ), Math.round( y / points.length ) );
+		}
 
 	}
 }

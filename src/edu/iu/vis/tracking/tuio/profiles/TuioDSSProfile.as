@@ -4,8 +4,6 @@ package edu.iu.vis.tracking.tuio.profiles {
 	import edu.iu.vis.tracking.RegionAdjacencyGraph;
 	import edu.iu.vis.tracking.symbols.dss.DSSConfig;
 	import edu.iu.vis.tracking.symbols.dss.DSSymbol;
-	import edu.iu.vis.tracking.tuio.TuioInterpreter;
-	import edu.iu.vis.utils.BitmapDataUtil;
 	import edu.iu.vis.utils.RectangleUtil;
 	import edu.iu.vis.utils.TrigUtil;
 	
@@ -29,10 +27,16 @@ package edu.iu.vis.tracking.tuio.profiles {
 				
 				if ( !RectangleUtil.ApproachingSquare( region.bounds, .2 ) ) // Ignore if not close to a square
 					continue;
+					
+				//if ( RectangleUtil.Radius( region.bounds ) < 100 )
+				//	continue;
 				
 				var bd:BitmapData = rag.printRegion( region );
 				var sym:DSSymbol = decode( bd, region );
 				var centroid:Point = RectangleUtil.Centroid( region.bounds );
+				
+				if ( !sym )
+					continue;
 				
 				this.sendObj( sym.codeInt, centroid.x, centroid.y, sym.rotation ); // Send Tuio obj data back to Interpreter
 			}
@@ -71,7 +75,10 @@ package edu.iu.vis.tracking.tuio.profiles {
 				var angle:Number = s * DSSConfig.SingleSliceDegrees + rotation;
 				
 				// Search outside-in
-				for ( var d:uint = DSSConfig.Depth; d >= 0; d-- ) {
+				//for ( var d:uint = DSSConfig.Depth; d >= 0; d-- ) {
+				for ( var dd:uint = 0; dd < DSSConfig.Depth; dd++ ) {
+					
+					var d:uint = DSSConfig.Depth - dd;
 					
 					// Find point to look for a coded value
 					var point:Point = ds.getSlicePoint( angle, d, true );
@@ -83,7 +90,7 @@ package edu.iu.vis.tracking.tuio.profiles {
 					var match:Boolean = pixel == dsColor;
 
 					//trace( s, d, point, pixel.toString(16), match );
-					BitmapDataUtil.StrokePoint( point, bitmap );
+					//BitmapDataUtil.StrokePoint( point, bitmap );
 					
 					if ( match ) {
 						code.push( d );

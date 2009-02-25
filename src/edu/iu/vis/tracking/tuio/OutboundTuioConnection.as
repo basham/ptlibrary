@@ -9,7 +9,7 @@ package edu.iu.vis.tracking.tuio {
 		}
 		
 		public function sendObjEvent( tuioObjEvent:Tuio2DObjEvent ):void {
-			trace( 'Sending to:', connectionName );
+			//trace( 'Sending to:', connectionName );
 			connection.send( connectionName, "tuioDispatcher", new Tuio2DObjEventMessage( tuioObjEvent ) );
 		}
 	}

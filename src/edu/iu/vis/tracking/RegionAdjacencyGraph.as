@@ -84,6 +84,11 @@ package edu.iu.vis.tracking {
 			-1: Matches regions with FALSE/odd bit values
 		*/
 		
+		//public function getRegionsMatchingDepthSequence( pattern:*, compareBit:Number = 0, matchAbsoluteDepthSequence:Boolean = false ):Array {
+		//	return root.getRegionsMatchingDepthSequence( pattern, compareBit, matchAbsoluteDepthSequence );
+		//}
+		
+		
 		public function getRegionsMatchingDepthSequence( pattern:*, compareBit:Number = 0, matchAbsoluteDepthSequence:Boolean = false ):Array {
 			
 			var matches:Array = new Array();

@@ -14,6 +14,8 @@ package edu.iu.vis.tracking {
 		private var diffTrackingData:BitmapData;
 		private var keystoneData:BitmapData;
 		
+		private var p:Point = new Point();
+		
 		private var _blur:uint;
 		private var _sensitivity:uint;
 		
@@ -62,11 +64,27 @@ package edu.iu.vis.tracking {
 			keystoneData.copyPixels(currTrackingData, currTrackingData.rect, new Point());
 		}
 		
-		public function track( source:BitmapData, keying:Boolean = false ):RegionAdjacencyGraph {
-			// Redraw video stream
-			//camData.draw(video);
-			
-			var p:Point = new Point();
+		public function keyTrack( source:BitmapData ):void {
+			track( source, true );
+		}
+		
+		public function motionTrack( source:BitmapData ):void {
+			track( source, false );
+		}
+		
+		public function regionTrack( source:BitmapData ):void {
+			contrastBlur( source );
+		}
+		
+		public function graph():RegionAdjacencyGraph {
+			var rag:RegionAdjacencyGraph = new RegionAdjacencyGraph( filteredBitmapData );
+			rag.graph();
+			rag.printBounds();
+			//trace( rag.toString() );
+			return rag;
+		}
+		
+		private function track( source:BitmapData, keying:Boolean = false ):void {
 			
 			// Make the current frame the new frame
 			prevTrackingData.copyPixels(currTrackingData, currTrackingData.rect, p);
@@ -87,22 +105,20 @@ package edu.iu.vis.tracking {
 			// Difference the current frame with the previous frame
 			diffTrackingData.draw( currTrackingData, null, null, "difference");
 
+			contrastBlur( diffTrackingData );
+		}
+
+		private function contrastBlur( source:BitmapData ):void {
 			// Greyscales and contrasts Difference
 			var cmf:ColorMatrixFilter = new ColorMatrixFilter( greyContrast );
 			// Blurs Difference to make blobby shapes
-			var blur:BlurFilter = new BlurFilter( blur, blur, 2 );
+			var blurF:BlurFilter = new BlurFilter( blur, blur, 2 );
 			
-			diffTrackingData.applyFilter( diffTrackingData, diffTrackingData.rect, p, cmf );	
-			diffTrackingData.applyFilter( diffTrackingData, diffTrackingData.rect, p, blur );
+			source.applyFilter( source, source.rect, p, cmf );	
+			source.applyFilter( source, source.rect, p, blurF );
 			
 			// Removes grey from blobs, making them more solid shapes
-			BitmapDataUtil.TwoBitBitmap( diffTrackingData, sensitivity/100 );
-			
-			var rag:RegionAdjacencyGraph = new RegionAdjacencyGraph( diffTrackingData );
-			rag.graph();
-			rag.printBounds();
-			//trace( rag.toString() );
-			return rag;
+			BitmapDataUtil.TwoBitBitmap( source, sensitivity/100 );
 		}
 
 	}

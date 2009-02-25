@@ -50,11 +50,11 @@ package edu.iu.vis.net {
 		protected function onStatus( e:StatusEvent ):void {
 			switch( e.level ) {
 				case "status":
-					trace('++ Connected');
+					//trace('++ Connected');
 					_connected = true;
 					break;
 				case "error":
-					trace('** Crappy Connection');
+					//trace('** Crappy Connection');
 					_connected = false;
 					break;
 			}
