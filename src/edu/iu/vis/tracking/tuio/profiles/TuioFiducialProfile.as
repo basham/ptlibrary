@@ -15,7 +15,8 @@ package edu.iu.vis.tracking.tuio.profiles {
 			fiducials.push( '01233333333332222222' );
 			fiducials.push( '01233333233232322222' );
 			fiducials.push( '0121' );
-			fiducials.push( '01233222' );
+			//fiducials.push( '01233222' );
+			fiducials.push( '0122111' );
 		}
 		
 		override public function interpretGraph( rag:RegionAdjacencyGraph ):void {

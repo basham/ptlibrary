@@ -10,10 +10,6 @@ package edu.iu.vis.tracking.tuio {
 		
 		public function tuioDispatcher( event:Tuio2DObjEventMessage ):void {
 			this.dispatchEvent( event.event() );
-			trace('Dispatch', event.event().data.x);
-			//var e:Tuio2DObjEvent = event as Tuio2DObjEvent;
-			//var e:Event = event as Event;
-			//trace( e.toString() );
 		}
 	}
 }

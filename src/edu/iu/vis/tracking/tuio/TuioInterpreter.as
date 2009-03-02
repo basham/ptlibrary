@@ -143,8 +143,9 @@ package edu.iu.vis.tracking.tuio {
 		}
 
 		private function removeSession( sessionKey:String ):void {
-			//dispatchObjEvent( new Tuio2DObjEvent( Tuio2DObjEvent.REMOVE_TUIO_2D_OBJ, sessions[ sessionKey ] as Tuio2DObj ) );
+			dispatchObjEvent( new Tuio2DObjEvent( Tuio2DObjEvent.REMOVE_TUIO_2D_OBJ, sessions[ sessionKey ] as Tuio2DObj ) );
 			sessions[ sessionKey ] = null;
+			delete( sessions[ sessionKey ] );
 		}
 
 		private function dispatchObjEvent( tuioEvent:Tuio2DObjEvent ):void {

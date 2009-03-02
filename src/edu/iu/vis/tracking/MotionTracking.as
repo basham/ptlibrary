@@ -12,7 +12,7 @@ package edu.iu.vis.tracking {
 		private var prevTrackingData:BitmapData;
 		private var currTrackingData:BitmapData;
 		private var diffTrackingData:BitmapData;
-		private var keystoneData:BitmapData;
+		private var keyTrackingData:BitmapData;
 		
 		private var p:Point = new Point();
 		
@@ -35,7 +35,7 @@ package edu.iu.vis.tracking {
 			prevTrackingData = new BitmapData(w, h);
 			currTrackingData = new BitmapData(w, h);
 			diffTrackingData = new BitmapData(w, h);
-			keystoneData = new BitmapData(w, h);
+			keyTrackingData = new BitmapData(w, h);
 			this.blur = blur;
 			this.sensitivity = sensitivity;
 		}
@@ -61,7 +61,7 @@ package edu.iu.vis.tracking {
 		}
 		
 		public function key():void {
-			keystoneData.copyPixels(currTrackingData, currTrackingData.rect, new Point());
+			keyTrackingData.copyPixels(currTrackingData, currTrackingData.rect, new Point());
 		}
 		
 		public function keyTrack( source:BitmapData ):void {
@@ -73,7 +73,8 @@ package edu.iu.vis.tracking {
 		}
 		
 		public function regionTrack( source:BitmapData ):void {
-			contrastBlur( source );
+			diffTrackingData.copyPixels( source, source.rect, p );
+			contrastBlur( diffTrackingData );
 		}
 		
 		public function graph():RegionAdjacencyGraph {
@@ -87,28 +88,27 @@ package edu.iu.vis.tracking {
 		private function track( source:BitmapData, keying:Boolean = false ):void {
 			
 			// Make the current frame the new frame
-			prevTrackingData.copyPixels(currTrackingData, currTrackingData.rect, p);
+			prevTrackingData.copyPixels( currTrackingData, currTrackingData.rect, p );
 			
 			// Redraw the current frame from the video source
-			//currTrackingData.draw(video);
-			currTrackingData.copyPixels(source, source.rect, p);
+			currTrackingData.copyPixels( source, source.rect, p );
 
 			if ( keying ) {
 				// Copy previous frame into Difference bitmap
-				diffTrackingData.copyPixels(keystoneData, keystoneData.rect, p);
+				diffTrackingData.copyPixels( keyTrackingData, keyTrackingData.rect, p );
 			}
 			else {
 				// Copy previous frame into Difference bitmap
-				diffTrackingData.copyPixels(prevTrackingData, prevTrackingData.rect, p);
+				diffTrackingData.copyPixels( prevTrackingData, prevTrackingData.rect, p );
 			}
 
 			// Difference the current frame with the previous frame
-			diffTrackingData.draw( currTrackingData, null, null, "difference");
+			diffTrackingData.draw( currTrackingData, null, null, "difference" );
 
 			contrastBlur( diffTrackingData );
 		}
 
-		private function contrastBlur( source:BitmapData ):void {
+		private function contrastBlur( source:BitmapData ):void {					
 			// Greyscales and contrasts Difference
 			var cmf:ColorMatrixFilter = new ColorMatrixFilter( greyContrast );
 			// Blurs Difference to make blobby shapes
