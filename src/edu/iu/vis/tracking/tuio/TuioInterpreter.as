@@ -2,7 +2,6 @@ package edu.iu.vis.tracking.tuio {
 	
 	import edu.iu.vis.tracking.RegionAdjacencyGraph;
 	import edu.iu.vis.tracking.tuio.profiles.ITuioInterpreterProfile;
-	import edu.iu.vis.utils.NumberUtil;
 	
 	import flash.display.BitmapData;
 	import flash.events.EventDispatcher;
@@ -29,10 +28,10 @@ package edu.iu.vis.tracking.tuio {
 	
 	public class TuioInterpreter extends EventDispatcher {
 		
-		private const SESSION_DIFF_THRESHOLD:Number = 100;
+		private const SESSION_DIFF_THRESHOLD:Number = 10;
 		
 		private var sessions:Dictionary = new Dictionary(true);
-		private var aliveSessions:Dictionary;
+		//private var aliveSessions:Dictionary;
 		private var profiles:Array = new Array();
 		
 		private var _outboundConnection:OutboundTuioConnection;
@@ -66,7 +65,7 @@ package edu.iu.vis.tracking.tuio {
 		public function interpret( source:BitmapData ):void {
 			sourceWidth = source.width;
 			sourceHeight = source.height;
-			aliveSessions = new Dictionary(true);
+			//aliveSessions = new Dictionary(true);
 			
 			rag = new RegionAdjacencyGraph( source );
 			rag.graph();
@@ -74,6 +73,7 @@ package edu.iu.vis.tracking.tuio {
 			for each( var profile:ITuioInterpreterProfile in profiles ) // Loop through profiles, each interpreting the graph
 				profile.interpretGraph( rag );
 			
+			rag.remove();
 			removeDeadSessions();
 			
 			_frame++;
@@ -94,8 +94,8 @@ package edu.iu.vis.tracking.tuio {
 			var bestSessionDiff:Number = -1;
 			
 			// Attempt to find the best match in a previous Tuio session.
-			for each ( var t:Tuio2DObj in sessions ) { // Loop through value objects
-				
+			for each ( var t:Tuio2DObjSession in sessions ) { // Loop through value objects
+				/*
 				if ( !t )
 					continue;
 				
@@ -107,19 +107,31 @@ package edu.iu.vis.tracking.tuio {
 				var aDiffPerc:Number = NumberUtil.PercentDifferenceRange( tuio.a, t.a, 180 ) * 100;
 
 				var diff:Number = ( xDiffPerc + yDiffPerc + aDiffPerc ) / 3; // Combine the diffs into a single, comparable value
-			//trace( '$', xDiffPerc, yDiffPerc, aDiffPerc, diff );	
+				*/
+			//trace( '$', xDiffPerc, yDiffPerc, aDiffPerc, diff );
+			
+				var diff:Number = t.difference( tuio );
+				
 				if ( diff >= bestSessionDiff && bestSessionDiff >= 0 ) // Ignore session if its not the best match so far
 					continue;
 				
 				// This session is the new best match
-				bestSessionMatch = t.s;
+				bestSessionMatch = t.sessionId;
 				bestSessionDiff = diff;
 			}
+			
 			//trace('-', bestSessionDiff );
 			// Establish session for this Tuio2DObj
 			var newSession:Boolean = !( bestSessionDiff < SESSION_DIFF_THRESHOLD && bestSessionDiff >= 0 );
 			var s:uint = newSession ? sessionCount++ : bestSessionMatch;
-			tuio.s = s;
+			var session:Tuio2DObjSession = newSession ? Tuio2DObjSession.GetInstance( s, tuio.i ) : sessions[ s ];
+			
+			session.updateByTuio( _frame, tuio );
+			
+			if ( newSession ) {
+				
+			}
+			//tuio.s = s;
 			
 			if ( !newSession ) {
 			/*
@@ -128,14 +140,32 @@ package edu.iu.vis.tracking.tuio {
 			*/	
 			}
 			
-			sessions[ s ] = tuio;
-			aliveSessions[ s ] = true;
+			//sessions[ s ] = tuio;
+			sessions[ s ] = session;
+			//aliveSessions[ s ] = true;
 			
 			// Broadcast event
-			trace('s=' + tuio.s, 'i=' + tuio.i, 'x=' + tuio.x, 'y=' + tuio.y, 'a=' + int(tuio.a), newSession ? '**' : '');
-			dispatchObjEvent( new Tuio2DObjEvent( ( newSession ? Tuio2DObjEvent.ADD_TUIO_2D_OBJ : Tuio2DObjEvent.UPDATE_TUIO_2D_OBJ ), tuio ) );
+			//trace('s=' + tuio.s, 'i=' + tuio.i, 'x=' + tuio.x, 'y=' + tuio.y, 'a=' + int(tuio.a), newSession ? '**' : '');
+			var u:Tuio2DObj = session.latest;
+			trace('s=' + u.s, 'i=' + u.i, 'x=' + u.x, 'y=' + u.y, 'a=' + int(u.a), newSession ? '**' : '', bestSessionDiff);
+			dispatchObjEvent( new Tuio2DObjEvent( ( newSession ? Tuio2DObjEvent.ADD_TUIO_2D_OBJ : Tuio2DObjEvent.UPDATE_TUIO_2D_OBJ ), u ) );
 		}
 		
+		private function removeDeadSessions():void {
+			for ( var sessionKey:String in sessions )
+				if ( !( sessions[ sessionKey ] as Tuio2DObjSession ).alive )
+					removeSession( sessionKey );
+		}
+		
+		private function removeSession( sessionKey:String ):void {
+			var session:Tuio2DObjSession = sessions[ sessionKey ];
+			dispatchObjEvent( new Tuio2DObjEvent( Tuio2DObjEvent.REMOVE_TUIO_2D_OBJ, session.latest ) );
+			session.remove();
+			sessions[ sessionKey ] = null;
+			delete( sessions[ sessionKey ] );
+		}
+		
+		/*
 		private function removeDeadSessions():void {
 			for ( var sessionKey:String in sessions )
 				if ( aliveSessions[ sessionKey ] != true )
@@ -147,7 +177,7 @@ package edu.iu.vis.tracking.tuio {
 			sessions[ sessionKey ] = null;
 			delete( sessions[ sessionKey ] );
 		}
-
+		*/
 		private function dispatchObjEvent( tuioEvent:Tuio2DObjEvent ):void {
 			this.dispatchEvent( tuioEvent );
 			if ( outboundConnection )

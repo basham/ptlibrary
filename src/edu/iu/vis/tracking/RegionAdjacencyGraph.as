@@ -25,8 +25,9 @@ package edu.iu.vis.tracking {
 		}
 		
 		public function graph():void {
+			remove();
 			BitmapDataUtil.TwoBitBitmap( bitmapData );
-			root = new Region( 0, bitmapData.rect, new Point(), this );
+			root = Region.GetInstance( 0, bitmapData.rect, new Point(), this );
 			graphRegion( root );
 		}
 		
@@ -66,7 +67,7 @@ package edu.iu.vis.tracking {
 						continue;
 				
 				// Instantiate and register the child region
-				var child:Region = new Region( region.depth + 1, childBound, point, this );
+				var child:Region = Region.GetInstance( region.depth + 1, childBound, point, this );
 				region.registerChild( child );
 				
 				// Recursively search to find child regions of the child region
@@ -127,6 +128,12 @@ package edu.iu.vis.tracking {
 		
 		public function registerRegion( region:Region ):void {
 			regions.push( region );
+		}
+		
+		public function remove():void {
+			if ( root )
+				root.remove();
+			regions = new Array();
 		}
 		
 		public function toString():String {

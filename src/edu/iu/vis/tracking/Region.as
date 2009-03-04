@@ -8,6 +8,8 @@ package edu.iu.vis.tracking {
 	
 	public class Region {
 		
+		static private var Pool:Array = new Array();
+		
 		private var _depth:uint;
 		public var bounds:Rectangle;
 		public var fillPoint:Point;
@@ -17,12 +19,27 @@ package edu.iu.vis.tracking {
 		private var _relativeDepthSequence:String = '';
 		private var _absoluteDepthSequence:String = '';
 		
-		public function Region( depth:uint, bounds:Rectangle, fillPoint:Point, graph:RegionAdjacencyGraph = null, children:Array = null ) {
+		public function Region( depth:uint, bounds:Rectangle, fillPoint:Point, graph:RegionAdjacencyGraph = null ) {
 			this.depth = depth;
 			this.bounds = bounds;
 			this.fillPoint = fillPoint;
-			this.children = children ? children : new Array();
-			if ( graph ) graph.registerRegion( this );
+			this.children = new Array();
+			if ( graph ) register( graph );
+		}
+		
+		static public function GetInstance( depth:uint, bounds:Rectangle, fillPoint:Point, graph:RegionAdjacencyGraph = null ):Region {
+			var r:Region = Pool.length > 0 ? Pool.pop() : new Region( depth, bounds, fillPoint, graph );
+			r.reset();
+			r.depth = depth;
+			r.bounds = bounds;
+			r.fillPoint = fillPoint;
+			r.children = new Array();
+			if ( graph ) r.register( graph );
+			return r;
+		}
+		
+		public function reset():void {
+			_relativeDepthSequence = _absoluteDepthSequence = '';
 		}
 		
 		public function get bit():Boolean {
@@ -43,14 +60,14 @@ package edu.iu.vis.tracking {
 		}
 		
 		public function get relativeDepthSequence():String {
+			
 			if ( _relativeDepthSequence != '' )
 				return _relativeDepthSequence;
 			
 			var rds:String = '0';
 			
-			for each( var child:Region in children ) {
+			for each( var child:Region in children )
 				rds += Region.TranslateDepthSequence( child.relativeDepthSequence, 1 );
-			}
 			
 			_relativeDepthSequence = rds;
 			_absoluteDepthSequence = '';
@@ -123,6 +140,10 @@ package edu.iu.vis.tracking {
 			children.sort( Region.LeftHeavyCompareRegions );
 		}
 		
+		public function register( graph:RegionAdjacencyGraph ):void {
+			graph.registerRegion( this );
+		}
+		
 		public function registerChild( child:Region ):void {
 			children.push( child );
 			_relativeDepthSequence = _absoluteDepthSequence = '';
@@ -156,6 +177,12 @@ package edu.iu.vis.tracking {
 			sourceBitmapData.floodFill( fillPoint.x, fillPoint.y, bitColor );
 			for each( var child:Region in children )
 				( child as Region ).print( sourceBitmapData );
+		}
+		
+		public function remove():void {
+			for each( var child:Region in children )
+				child.remove();
+			Pool.push( this );
 		}
 		
 		public static function LeftHeavyCompareRegions( region1:Region, region2:Region ):Number {
