@@ -41,9 +41,14 @@ package edu.iu.vis.utils {
 			return Radians( DegreesFromOrigin( origin, point ) );
 		}
 		
-		public static function DistanceBetweenPoints( p1:Point, p2:Point ):Number {
-			return Math.sqrt( Math.pow( p2.x - p1.x, 2 ) + Math.pow( p2.y - p1.y, 2 ) );
+		public static function DistanceBetweenCoordinates( x1:Number, y1:Number, x2:Number, y2:Number ):Number {
+			return Math.sqrt( Math.pow( x2 - x1, 2 ) + Math.pow( y2 - y1, 2 ) );
 		}
+		
+		public static function DistanceBetweenPoints( p1:Point, p2:Point ):Number {
+			return DistanceBetweenCoordinates( p1.x, p1.y, p2.x, p2.y );
+		}
+		
 		public static function RadiansBetweenPoints( p1:Point, p2:Point ):Number {
 			return Math.atan2( p2.y - p1.y, p2.x - p1.x );
 		}

@@ -34,18 +34,15 @@ package edu.iu.vis.tracking.tuio.profiles {
 
 				var orientationPoint:Point = TrigUtil.AvgPoint( orientationPoints );
 				var centroid:Point = RectangleUtil.Centroid( region.bounds );
-				var rotation:Number = TrigUtil.DegreesFromOrigin( centroid, orientationPoint );
+				var rotation:Number = TrigUtil.RadiansFromOrigin( centroid, orientationPoint );
 				var classId:uint = fiducials.indexOf( region.relativeDepthSequence );
 				
 				region.print( rag.bitmapData );
-				trace( centroid, rotation );
 				
 				// Send Tuio obj data back to Interpreter
 				this.sendObj( classId, centroid.x, centroid.y, rotation );
 			}
-			
-			//if ( fiducialRegions.length == 0 )
-			//	rag.printBounds();
+
 		}
 
 	}

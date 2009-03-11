@@ -1,6 +1,7 @@
 package edu.iu.vis.tracking {
 	
 	import edu.iu.vis.utils.BitmapDataUtil;
+	import edu.iu.vis.utils.Pool;
 	import edu.iu.vis.utils.RectangleUtil;
 	
 	import flash.display.BitmapData;
@@ -25,7 +26,7 @@ package edu.iu.vis.tracking {
 		}
 		
 		public function graph():void {
-			remove();
+			dispose();
 			BitmapDataUtil.TwoBitBitmap( bitmapData );
 			root = Region.GetInstance( 0, bitmapData.rect, new Point(), this );
 			graphRegion( root );
@@ -130,9 +131,9 @@ package edu.iu.vis.tracking {
 			regions.push( region );
 		}
 		
-		public function remove():void {
+		public function dispose():void {
 			if ( root )
-				root.remove();
+				root.dispose();
 			regions = new Array();
 		}
 		

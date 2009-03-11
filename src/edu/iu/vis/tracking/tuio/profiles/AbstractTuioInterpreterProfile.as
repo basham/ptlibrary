@@ -25,7 +25,7 @@ package edu.iu.vis.tracking.tuio.profiles {
 		
 		protected function sendObj( i:uint, x:Number, y:Number, a:Number ):void {
 			if ( interpreter )
-				interpreter.generateEventFromObj( new Tuio2DObj( 0, i, x, y, a, 0, 0, 0, 0, 0 ) );
+				interpreter.generateEventFromObj( i, x / interpreter.sourceWidth, y / interpreter.sourceHeight, a );
 		}
 		
 	}

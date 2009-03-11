@@ -1,14 +1,13 @@
 package edu.iu.vis.tracking {
 	
 	import edu.iu.vis.utils.RectangleUtil;
+	import edu.iu.vis.utils.Pool;
 	
 	import flash.display.BitmapData;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	
 	public class Region {
-		
-		static private var Pool:Array = new Array();
 		
 		private var _depth:uint;
 		public var bounds:Rectangle;
@@ -28,12 +27,10 @@ package edu.iu.vis.tracking {
 		}
 		
 		static public function GetInstance( depth:uint, bounds:Rectangle, fillPoint:Point, graph:RegionAdjacencyGraph = null ):Region {
-			var r:Region = Pool.length > 0 ? Pool.pop() : new Region( depth, bounds, fillPoint, graph );
-			r.reset();
+			var r:Region = Pool.Get( Region, depth, bounds, fillPoint, graph );
 			r.depth = depth;
 			r.bounds = bounds;
 			r.fillPoint = fillPoint;
-			r.children = new Array();
 			if ( graph ) r.register( graph );
 			return r;
 		}
@@ -179,10 +176,12 @@ package edu.iu.vis.tracking {
 				( child as Region ).print( sourceBitmapData );
 		}
 		
-		public function remove():void {
+		public function dispose():void {
 			for each( var child:Region in children )
-				child.remove();
-			Pool.push( this );
+				child.dispose();
+			reset();
+			children = new Array();
+			Pool.Dispose( this );
 		}
 		
 		public static function LeftHeavyCompareRegions( region1:Region, region2:Region ):Number {

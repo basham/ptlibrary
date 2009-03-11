@@ -6,8 +6,6 @@ package edu.iu.vis.tracking.tuio {
 	
 	public class Tuio2DObjFrame {
 		
-		static private var TuioPool:Array = new Array();
-		
 		public var frame:uint = 0;
 		public var tuio:Tuio2DObj;
 		
@@ -17,9 +15,10 @@ package edu.iu.vis.tracking.tuio {
 		}
 
 		static public function GetTuioInstance():Tuio2DObj {
-			return ( TuioPool.length > 0 ? TuioPool.pop() : new Tuio2DObj( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) );
+			return Pool.Get( Tuio2DObj, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 );
 		}
 		
+		// Will be called automatically when 'this' is disposed in the Pool
 		public function PoolDisposer():void {
 			Pool.Dispose( tuio );
 			this.frame = 0;

@@ -22,11 +22,11 @@ package edu.iu.vis.utils {
 		}
 		
 		public function getInstanceByArray( parameters:Array ):* {
-			//return ( pool.length > 0 ? pool.pop() : Util.Construct( type, parameters ) );
-			var obj:Object = pool.length > 0 ? pool.pop() : Util.Construct( type, parameters );
-			if ( obj.hasOwnProperty( "PoolConstructor" ) )
-				obj.PoolConstructor();
-			return obj;
+			return ( pool.length > 0 ? pool.pop() : Util.Construct( type, parameters ) );
+			//var obj:Object = ( pool.length > 0 ? pool.pop() : Util.Construct( type, parameters ) ) as Object;
+			//if ( obj.hasOwnProperty( "PoolConstructor" ) )
+			//	obj.PoolConstructor();
+			//return obj;
 		}
 		
 		public function dispose( object:* ):void {

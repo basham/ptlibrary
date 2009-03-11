@@ -16,6 +16,16 @@ package edu.iu.vis.utils {
 					return new type( parameters[0], parameters[1], parameters[2], parameters[3] );
 				case 5:
 					return new type( parameters[0], parameters[1], parameters[2], parameters[3], parameters[4] );
+				case 6:
+					return new type( parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5] );
+				case 7:
+					return new type( parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6] );
+				case 8:
+					return new type( parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6], parameters[7] );
+				case 9:
+					return new type( parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6], parameters[7], parameters[8] );
+				case 10:
+					return new type( parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6], parameters[7], parameters[8], parameters[9] );
 				default:
 					return null;
 			}
