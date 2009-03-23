@@ -38,6 +38,7 @@ package edu.iu.vis.tracking.tuio {
 		private var _sensitivity:Number = .3;
 		
 		private var sessionCount:uint = 0;
+		private var sourceFPS:uint = 0;
 		public var sourceWidth:uint = 320;
 		public var sourceHeight:uint = 240;
 		
@@ -69,19 +70,28 @@ package edu.iu.vis.tracking.tuio {
 			profiles.push( profile );
 		}
 
-		public function interpret( source:BitmapData ):void {
+		public function interpret( source:BitmapData, fps:uint = 0 ):void {
+			
+			// Need source dimensions to calculate percentage coordinates
 			sourceWidth = source.width;
 			sourceHeight = source.height;
 			
+			// Need FPS to calculate time-based parameters (i.e. speed, acceleration)
+			sourceFPS = fps;
+			
+			// Create graph from source bitmap
 			rag = new RegionAdjacencyGraph( source );
 			rag.graph();
 			
-			for each( var profile:ITuioInterpreterProfile in profiles ) // Loop through profiles, each interpreting the graph
+			// Loop through profiles, each interpreting the graph
+			for each( var profile:ITuioInterpreterProfile in profiles )
 				profile.interpretGraph( rag );
 			
+			// Cleanup
 			rag.dispose();
 			removeDeadSessions();
 			
+			// Every call to 'interpret()' assumes its a new frame
 			_frame++;
 		}
 		
@@ -120,12 +130,12 @@ package edu.iu.vis.tracking.tuio {
 			var sid:uint = newSession ? sessionCount++ : bestSessionMatch;
 			var session:Tuio2DObjSession = newSession ? new Tuio2DObjSession( this, sid, i ) : sessions[ sid ];
 
-			session.update( frame, x, y, a );
+			session.update( frame, sourceFPS, x, y, a );
 			sessions[ sid ] = session;
 			
 			// Broadcast event
 			var u:Tuio2DObj = session.latest.tuio;
-			trace('s=' + u.s, 'i=' + u.i, 'x=' + u.x, 'y=' + u.y, 'a=' + int(u.a), newSession ? '**' : '', bestSessionDiff);
+			trace('s=' + u.s, 'i=' + u.i, 'x=' + u.x, 'y=' + u.y, 'a=' + int(u.a), 'X=' + u.X, 'Y=' + u.Y, 'A=' + u.A, 'm=' + u.m, 'r=' + u.r, newSession ? '**' : '', bestSessionDiff);
 			dispatchObjEvent( new Tuio2DObjEvent( ( newSession ? Tuio2DObjEvent.ADD_TUIO_2D_OBJ : Tuio2DObjEvent.UPDATE_TUIO_2D_OBJ ), u ) );				
 		}
 		
@@ -138,7 +148,6 @@ package edu.iu.vis.tracking.tuio {
 		private function removeSession( sessionKey:String ):void {
 			var session:Tuio2DObjSession = sessions[ sessionKey ];
 			dispatchObjEvent( new Tuio2DObjEvent( Tuio2DObjEvent.REMOVE_TUIO_2D_OBJ, session.latest.tuio ) );
-			//session.remove();
 			session.dispose();
 			sessions[ sessionKey ] = null;
 			delete( sessions[ sessionKey ] );
