@@ -1,0 +1,416 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
+<meta content="BitmapDataUtil,edu.iu.vis.utils.BitmapDataUtil,GetBoundingRectFromPointRegion,GetSmartColorBoundsRect,SelectClosestColor,StrokePoint,StrokeRect,TwoBitBitmap" name="keywords">
+<title>edu.iu.vis.utils.BitmapDataUtil</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'BitmapDataUtil - VisTrack';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">VisTrack</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?edu/iu/vis/utils/BitmapDataUtil.html&amp;edu/iu/vis/utils/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;BitmapDataUtil</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class BitmapDataUtil"); titleBar_setSubNav(false,false,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">edu.iu.vis.utils</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class BitmapDataUtil</td>
+</tr>
+</table>
+<p></p>
+  The BitmapDataUtil class defines general, static utility functions for BitmapData objects.
+  
+  <p></p>
+<br>
+<hr>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#GetBoundingRectFromPointRegion()">GetBoundingRectFromPointRegion</a>(source:BitmapData, point:Point, fillColor:uint = 0xFFFFF000, uniqueColor:uint = 0xFFFFFF00, copySource:Boolean = false):Rectangle</div>
+<div class="summaryTableDescription">[static]
+   Finds the bounding rectangular region of a blob containing the given point.</div>
+</td><td class="summaryTableOwnerCol">BitmapDataUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#GetSmartColorBoundsRect()">GetSmartColorBoundsRect</a>(source:BitmapData, rect:Rectangle, mask:uint, color:uint, relativeBounds:Boolean = false):Rectangle</div>
+<div class="summaryTableDescription">[static]
+   Finds the color region within a rectangular bound in the source bitmap.</div>
+</td><td class="summaryTableOwnerCol">BitmapDataUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#SelectClosestColor()">SelectClosestColor</a>(color:uint, source:BitmapData, rect:Rectangle = null, operation:String = "&lt;="):Point</div>
+<div class="summaryTableDescription">[static]
+   Find a single point along a retangular bounds who's pixel color matches a given color according to a certain operation.</div>
+</td><td class="summaryTableOwnerCol">BitmapDataUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#StrokePoint()">StrokePoint</a>(point:Point, source:BitmapData, strokeColor:uint = 0xFF0000, strokeThickness:uint = 2):void</div>
+<div class="summaryTableDescription">[static]
+   Strokes a point on a BitmapData.</div>
+</td><td class="summaryTableOwnerCol">BitmapDataUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#StrokeRect()">StrokeRect</a>(rect:Rectangle, source:BitmapData, strokeColor:uint = 0xFF0000, strokeThickness:uint = 2):void</div>
+<div class="summaryTableDescription">[static]
+   Strokes a rectangle on a BitmapData.</div>
+</td><td class="summaryTableOwnerCol">BitmapDataUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#TwoBitBitmap()">TwoBitBitmap</a>(source:BitmapData, ratio:Number = .5, colorLow:uint = 0xFF000000, colorHigh:uint = 0xFFFFFFFF, mask:uint = 0xFFFFFFFF):void</div>
+<div class="summaryTableDescription">[static]
+   Reduces a BitmapData to two 32-bit colors according to a threshold.</div>
+</td><td class="summaryTableOwnerCol">BitmapDataUtil</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="GetBoundingRectFromPointRegion()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GetBoundingRectFromPointRegion</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function GetBoundingRectFromPointRegion(source:BitmapData, point:Point, fillColor:uint = 0xFFFFF000, uniqueColor:uint = 0xFFFFFF00, copySource:Boolean = false):Rectangle</code><p>
+   Finds the bounding rectangular region of a blob containing the given point.
+   
+   </p><p>Note: The unique color must not be present in the sourceBitmapData, otherwise, false results are returned</p>
+   
+   <span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">source</span>:BitmapData</code> &mdash; The referenced BitmapData.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">point</span>:Point</code> &mdash; The point relative to the source BitmapData contained in a blob region.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">fillColor</span>:uint</code> (default = <code>0xFFFFF000</code>)<code></code> &mdash; A 32-bit ARGB color filling the blob region containing the point.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">uniqueColor</span>:uint</code> (default = <code>0xFFFFFF00</code>)<code></code> &mdash; A 32-bit ARGB color that is not present in the source BitmapData.
+   If the color is not unique, the function will return false results.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">copySource</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; A Boolean indicating if the function should use a working copy (<code>true</code>)
+   or modify the source BitmapData (<code>false</code>).
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Rectangle</code> &mdash; Returns a Rectangle indicating the bounding region of a blob containing the given point.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="GetSmartColorBoundsRect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">GetSmartColorBoundsRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function GetSmartColorBoundsRect(source:BitmapData, rect:Rectangle, mask:uint, color:uint, relativeBounds:Boolean = false):Rectangle</code><p>
+   Finds the color region within a rectangular bound in the source bitmap.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">source</span>:BitmapData</code> &mdash; The referenced BitmapData.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; The retangular bounds to search for a colored region.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">mask</span>:uint</code> &mdash; A 32-bit ARGB color mask.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">color</span>:uint</code> &mdash; A color to be searched for in the source BitmapData.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">relativeBounds</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; A Boolean indicating how to adjust the returned bound value.
+   If set to <code>false</code> (default), the bound coordinates are calculated relative to the rect parameter.
+   If set to <code>true</code>, the bound coordinates are calculated relative to the source BitmapData bounding rectangle.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Rectangle</code> &mdash; Returns a Rectangle indicating the bounds of a certain colored region.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="SelectClosestColor()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">SelectClosestColor</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function SelectClosestColor(color:uint, source:BitmapData, rect:Rectangle = null, operation:String = "&lt;="):Point</code><p>
+   Find a single point along a retangular bounds who's pixel color matches a given color according to a certain operation.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">color</span>:uint</code> &mdash; A 32-bit ARGB color attempted to be matched.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">source</span>:BitmapData</code> &mdash; The referenced BitmapData.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> (default = <code>null</code>)<code></code> &mdash; The retangular bounds to search for the point.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">operation</span>:String</code> (default = "<code>&lt;=</code>")<code></code> &mdash; Any standard set of operations in string form to compare the color to a point, e.g. '<=', '==', '>', '!=', etc.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Point</code> &mdash; Returns a Point if a matched pixel color is found or NULL if no match is found.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="StrokePoint()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">StrokePoint</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function StrokePoint(point:Point, source:BitmapData, strokeColor:uint = 0xFF0000, strokeThickness:uint = 2):void</code><p>
+   Strokes a point on a BitmapData.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">point</span>:Point</code> &mdash; The point that to be stroked.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">source</span>:BitmapData</code> &mdash; The referenced BitmapData.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">strokeColor</span>:uint</code> (default = <code>0xFF0000</code>)<code></code> &mdash; A hexidecimal value coloring the stroke.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">strokeThickness</span>:uint</code> (default = <code>2</code>)<code></code> &mdash; The stroke thickness in pixels.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="StrokeRect()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">StrokeRect</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function StrokeRect(rect:Rectangle, source:BitmapData, strokeColor:uint = 0xFF0000, strokeThickness:uint = 2):void</code><p>
+   Strokes a rectangle on a BitmapData.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; The rectangle that to be stroked.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">source</span>:BitmapData</code> &mdash; The referenced BitmapData.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">strokeColor</span>:uint</code> (default = <code>0xFF0000</code>)<code></code> &mdash; A hexidecimal value coloring the stroke.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">strokeThickness</span>:uint</code> (default = <code>2</code>)<code></code> &mdash; The stroke thickness in pixels.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="TwoBitBitmap()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">TwoBitBitmap</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function TwoBitBitmap(source:BitmapData, ratio:Number = .5, colorLow:uint = 0xFF000000, colorHigh:uint = 0xFFFFFFFF, mask:uint = 0xFFFFFFFF):void</code><p>
+   Reduces a BitmapData to two 32-bit colors according to a threshold.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">source</span>:BitmapData</code> &mdash; The referenced BitmapData.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">ratio</span>:Number</code> (default = <code>.5</code>)<code></code> &mdash; The relative percentage between the two high/low colors defining the color value to threshold the source BitmapData.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">colorLow</span>:uint</code> (default = <code>0xFF000000</code>)<code></code> &mdash; The low, extreme 32-bit ARGB color for thresholding. Default: 100% visible black.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">colorHigh</span>:uint</code> (default = <code>0xFFFFFFFF</code>)<code></code> &mdash; The high, extreme 32-bit ARGB color for thresholding. Default: 100% visible white.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">mask</span>:uint</code> (default = <code>0xFFFFFFFF</code>)<code></code> &mdash; The 32-bit ARGB color mask for thresholding.
+   
+   </td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->
