@@ -4,22 +4,22 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
-<meta content="Pool,edu.iu.vis.utils.Pool,pool,type,Dispose,DisposePool,Get,GetPool,dispose,getInstance,getInstanceByArray,purge" name="keywords">
+<meta content="Pool,edu.iu.vis.utils.Pool,Dispose,DistroyPool,Get,GetPool,dispose,getInstance,getInstanceByArray,purge" name="keywords">
 <title>edu.iu.vis.utils.Pool</title>
 </head>
 <body>
 <script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
 <!--
-				asdocTitle = 'Pool - VisTrack';
+				asdocTitle = 'Pool - PTLibrary';
 				var baseRef = '../../../../';
 				window.onload = configPage;
 			--></script>
 <table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
 <tr>
-<td align="left" class="titleTableTitle">VisTrack</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?edu/iu/vis/utils/Pool.html&amp;edu/iu/vis/utils/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
+<td align="left" class="titleTableTitle">PTLibrary</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?edu/iu/vis/utils/Pool.html&amp;edu/iu/vis/utils/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
 </tr>
 <tr class="titleTableRow2">
-<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Pool</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td>
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;Pool</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#methodSummary">Methods</a></td>
 </tr>
 <tr class="titleTableRow3">
 <td colspan="2">&nbsp;</td>
@@ -27,7 +27,7 @@
 </table>
 <script type="text/javascript" language="javascript">
 <!--
-if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Pool"); titleBar_setSubNav(false,true,false,false,false,false,true,false,false,false,false,false,false,false);}
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class Pool"); titleBar_setSubNav(false,false,false,false,false,false,true,false,false,false,false,false,false,false);}
 --></script>
 <div class="MainContent">
 <table cellspacing="0" cellpadding="0" class="classHeaderTable">
@@ -39,26 +39,13 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 </table>
 <p></p>
-<p></p>
+  The Pool class provides a way to store and retrieve unused class instances.
+  The best classes to pool are ones to be created and destroyed often,
+  and do not force constructor parameters.
+  
+  <p></p>
 <br>
 <hr>
-</div>
-<a name="propertySummary"></a>
-<div class="summarySection">
-<div class="summaryTableTitle">Public Properties</div>
-<table id="summaryTableProperty" class="summaryTable " cellpadding="3" cellspacing="0">
-<tr>
-<th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#pool">pool</a> : Array<div class="summaryTableDescription"></div>
-</td><td class="summaryTableOwnerCol">Pool</td>
-</tr>
-<tr class="">
-<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a class="signatureLink" href="#type">type</a> : Class<div class="summaryTableDescription"></div>
-</td><td class="summaryTableOwnerCol">Pool</td>
-</tr>
-</table>
 </div>
 <a name="methodSummary"></a>
 <div class="summarySection">
@@ -71,49 +58,59 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#Pool()">Pool</a>(type:Class)</div>
-<div class="summaryTableDescription"></div>
+<div class="summaryTableDescription">
+   The constructor for a Pool instance.</div>
 </td><td class="summaryTableOwnerCol">Pool</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#dispose()">dispose</a>(object:*):void</div>
-<div class="summaryTableDescription"></div>
+<div class="summaryTableDescription">
+   Disposes a class instance, adding it to the class Pool.</div>
 </td><td class="summaryTableOwnerCol">Pool</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#Dispose()">Dispose</a>(object:*, type:Class = null):void</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Disposes a class instance, adding it to the class Pool.</div>
 </td><td class="summaryTableOwnerCol">Pool</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#DisposePool()">DisposePool</a>(type:Class):void</div>
-<div class="summaryTableDescription">[static]</div>
+<a class="signatureLink" href="#DistroyPool()">DistroyPool</a>(type:Class):void</div>
+<div class="summaryTableDescription">[static]
+   Destroys a Pool for the given class type, exposing all its stored instances
+   for garbage collection.</div>
 </td><td class="summaryTableOwnerCol">Pool</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#Get()">Get</a>(type:Class, ... parameters):*</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Creates or finds an instance of the given class type.</div>
 </td><td class="summaryTableOwnerCol">Pool</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#getInstance()">getInstance</a>(... parameters):*</div>
-<div class="summaryTableDescription"></div>
+<div class="summaryTableDescription">
+   Creates or finds an instance of the Pool class type,
+   applying the supplied parameters if needed.</div>
 </td><td class="summaryTableOwnerCol">Pool</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#getInstanceByArray()">getInstanceByArray</a>(parameters:Array):*</div>
-<div class="summaryTableDescription"></div>
+<div class="summaryTableDescription">
+   Creates or finds an instance of the Pool class type,
+   applying the supplied parameters if needed.</div>
 </td><td class="summaryTableOwnerCol">Pool</td>
 </tr>
 <tr class="">
@@ -121,14 +118,16 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <div class="summarySignature">
 <a class="signatureLink" href="#GetPool()">GetPool</a>(type:Class):<a href="../utils/Pool.html">Pool</a>
 </div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Creates or finds a Pool for the given class type.</div>
 </td><td class="summaryTableOwnerCol">Pool</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#purge()">purge</a>():void</div>
-<div class="summaryTableDescription"></div>
+<div class="summaryTableDescription">
+   Purges a Pool's class instances, exposing them to garbage collection.</div>
 </td><td class="summaryTableOwnerCol">Pool</td>
 </tr>
 </table>
@@ -138,26 +137,6 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 showHideInherited();
 --></script>
 <div class="MainContent">
-<a name="propertyDetail"></a>
-<div class="detailSectionHeader">Property detail</div>
-<a name="pool"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">pool</td><td class="detailHeaderType">property</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public var pool:Array</code>
-</div>
-<a name="type"></a>
-<table cellspacing="0" cellpadding="0" class="detailHeader">
-<tr>
-<td class="detailHeaderName">type</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td>
-</tr>
-</table>
-<div class="detailBody">
-<code>public var type:Class</code>
-</div>
 <a name="constructorDetail"></a>
 <div class="detailSectionHeader">Constructor detail</div>
 <a name="Pool()"></a>
@@ -167,10 +146,15 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function Pool(type:Class)</code><span class="label">Parameters</span>
+<code>public function Pool(type:Class)</code><p>
+   The constructor for a Pool instance.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">type</span>:Class</code></td>
+<td width="20px"></td><td><code><span class="label">type</span>:Class</code> &mdash; Any class type.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -183,10 +167,19 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function dispose(object:*):void</code><span class="label">Parameters</span>
+<code>public function dispose(object:*):void</code><p>
+   Disposes a class instance, adding it to the class Pool.
+   
+   </p><p>If the instance contains a method named <code>PoolDisposer</code>,
+   it will automatically be called at function execution as a pool equivalent
+   of a deconstructor.</p>
+   
+   <span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">object</span>:*</code></td>
+<td width="20px"></td><td><code><span class="label">object</span>:*</code> &mdash; A class instance of the Pool's class type.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -197,30 +190,43 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function Dispose(object:*, type:Class = null):void</code><span class="label">Parameters</span>
+<code>public static function Dispose(object:*, type:Class = null):void</code><p>
+   Disposes a class instance, adding it to the class Pool.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">object</span>:*</code></td>
+<td width="20px"></td><td><code><span class="label">object</span>:*</code> &mdash; Any class instance.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">type</span>:Class</code> (default = <code>null</code>)<code></code></td>
+<td width="20px"></td><td><code><span class="label">type</span>:Class</code> (default = <code>null</code>)<code></code> &mdash; A class type. If not provided, it will be determined by the object.
+   Utilize this parameter to improve this function's speed.
+   
+   </td>
 </tr>
 </table>
 </div>
-<a name="DisposePool()"></a>
+<a name="DistroyPool()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
-<td class="detailHeaderName">DisposePool</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+<td class="detailHeaderName">DistroyPool</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function DisposePool(type:Class):void</code><span class="label">Parameters</span>
+<code>public static function DistroyPool(type:Class):void</code><p>
+   Destroys a Pool for the given class type, exposing all its stored instances
+   for garbage collection.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">type</span>:Class</code></td>
+<td width="20px"></td><td><code><span class="label">type</span>:Class</code> &mdash; A class type.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -231,23 +237,32 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function Get(type:Class, ... parameters):*</code><span class="label">Parameters</span>
+<code>public static function Get(type:Class, ... parameters):*</code><p>
+   Creates or finds an instance of the given class type.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">type</span>:Class</code></td>
+<td width="20px"></td><td><code><span class="label">type</span>:Class</code> &mdash; A class type.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code>... <span class="label">parameters</span></code></td>
+<td width="20px"></td><td><code>... <span class="label">parameters</span></code> &mdash; A rest list of any number of parameters to be applied to the constructor
+   of the class instance, if an instance requires parameters for construction.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>*</code></td>
+<td width="20"></td><td><code>*</code> &mdash; Returns an instance of the given class type.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -258,17 +273,25 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function getInstance(... parameters):*</code><span class="label">Parameters</span>
+<code>public function getInstance(... parameters):*</code><p>
+   Creates or finds an instance of the Pool class type,
+   applying the supplied parameters if needed.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code>... <span class="label">parameters</span></code></td>
+<td width="20px"></td><td><code>... <span class="label">parameters</span></code> &mdash; A rest list of parameters to be applied to the constructor of a Pool's class type instance.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>*</code></td>
+<td width="20"></td><td><code>*</code> &mdash; Returns an instance of the Pool's class type.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -279,17 +302,25 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function getInstanceByArray(parameters:Array):*</code><span class="label">Parameters</span>
+<code>public function getInstanceByArray(parameters:Array):*</code><p>
+   Creates or finds an instance of the Pool class type,
+   applying the supplied parameters if needed.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">parameters</span>:Array</code></td>
+<td width="20px"></td><td><code><span class="label">parameters</span>:Array</code> &mdash; An array of parameters to be applied to the constructor of a Pool's class type instance.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>*</code></td>
+<td width="20"></td><td><code>*</code> &mdash; Returns an instance of the Pool's class type.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -300,17 +331,27 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function GetPool(type:Class):<a href="../utils/Pool.html">Pool</a></code><span class="label">Parameters</span>
+<code>public static function GetPool(type:Class):<a href="../utils/Pool.html">Pool</a></code><p>
+   Creates or finds a Pool for the given class type.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">type</span>:Class</code></td>
+<td width="20px"></td><td><code><span class="label">type</span>:Class</code> &mdash; A class type.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code><a href="../utils/Pool.html">Pool</a></code></td>
+<td width="20"></td><td><code><a href="../utils/Pool.html">Pool</a></code> &mdash; 
+                        Returns the single Pool associated with the given class type.
+   
+   
+                        
+                     </td>
 </tr>
 </table>
 </div>
@@ -321,8 +362,10 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function purge():void</code>
-</div>
+<code>public function purge():void</code><p>
+   Purges a Pool's class instances, exposing them to garbage collection.
+   
+   </p></div>
 <br>
 <br>
 <hr>

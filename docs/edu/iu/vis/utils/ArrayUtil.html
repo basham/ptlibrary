@@ -4,19 +4,19 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
-<meta content="ArrayUtil,edu.iu.vis.utils.ArrayUtil,CompareSimpleArrays,FitToLength,ToSimpleString" name="keywords">
+<meta content="ArrayUtil,edu.iu.vis.utils.ArrayUtil,CompareSimpleArrays,FitToLength,MaxIndex,MinIndex,ToSimpleString,TruncateExtremes" name="keywords">
 <title>edu.iu.vis.utils.ArrayUtil</title>
 </head>
 <body>
 <script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
 <!--
-				asdocTitle = 'ArrayUtil - VisTrack';
+				asdocTitle = 'ArrayUtil - PTLibrary';
 				var baseRef = '../../../../';
 				window.onload = configPage;
 			--></script>
 <table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
 <tr>
-<td align="left" class="titleTableTitle">VisTrack</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?edu/iu/vis/utils/ArrayUtil.html&amp;edu/iu/vis/utils/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
+<td align="left" class="titleTableTitle">PTLibrary</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?edu/iu/vis/utils/ArrayUtil.html&amp;edu/iu/vis/utils/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
 </tr>
 <tr class="titleTableRow2">
 <td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;ArrayUtil</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#methodSummary">Methods</a></td>
@@ -72,9 +72,37 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
+<a class="signatureLink" href="#MaxIndex()">MaxIndex</a>(values:Array):uint</div>
+<div class="summaryTableDescription">[static]
+   Finds the Index of the largest value in an array
+   
+   </div>
+</td><td class="summaryTableOwnerCol">ArrayUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#MinIndex()">MinIndex</a>(values:Array):uint</div>
+<div class="summaryTableDescription">[static]
+   Finds the Index of the smallest value in an array.</div>
+</td><td class="summaryTableOwnerCol">ArrayUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
 <a class="signatureLink" href="#ToSimpleString()">ToSimpleString</a>(array:Array):String</div>
 <div class="summaryTableDescription">[static]
    Converts an array of strings to a single, concatenated string.</div>
+</td><td class="summaryTableOwnerCol">ArrayUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#TruncateExtremes()">TruncateExtremes</a>(values:Array, percentage:Number = .25):Array</div>
+<div class="summaryTableDescription">[static]
+   Removes High and Lows from an array of comparable, numeric values without modifying the order of the array
+   
+   </div>
 </td><td class="summaryTableOwnerCol">ArrayUtil</td>
 </tr>
 </table>
@@ -164,6 +192,62 @@ showHideInherited();
 </tr>
 </table>
 </div>
+<a name="MaxIndex()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MaxIndex</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function MaxIndex(values:Array):uint</code><p>
+   Finds the Index of the largest value in an array
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">values</span>:Array</code> &mdash; An array containing a list of comparable, numeric values.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>uint</code> &mdash; Returns a numeric index in the array.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="MinIndex()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">MinIndex</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function MinIndex(values:Array):uint</code><p>
+   Finds the Index of the smallest value in an array.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">values</span>:Array</code> &mdash; An array containing a list of comparable, numeric values.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>uint</code> &mdash; Returns a numeric index in the array.
+   
+   </td>
+</tr>
+</table>
+</div>
 <a name="ToSimpleString()"></a>
 <table cellspacing="0" cellpadding="0" class="detailHeader">
 <tr>
@@ -187,6 +271,42 @@ showHideInherited();
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20"></td><td><code>String</code> &mdash; Returns the concatenated string.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="TruncateExtremes()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">TruncateExtremes</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function TruncateExtremes(values:Array, percentage:Number = .25):Array</code><p>
+   Removes High and Lows from an array of comparable, numeric values without modifying the order of the array
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">values</span>:Array</code> &mdash; An array containing a list of comparable, numeric values.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">percentage</span>:Number</code> (default = <code>.25</code>)<code></code> &mdash; A percentage (<code>0 ... 1</code>) of the number of extreme low and high elements
+   in the values array to be removed from the array.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Array</code> &mdash; Returns the original values array excluding a derrived number of extreme values.
    
    </td>
 </tr>

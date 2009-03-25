@@ -10,13 +10,13 @@
 <body>
 <script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
 <!--
-				asdocTitle = 'RectangleUtil - VisTrack';
+				asdocTitle = 'RectangleUtil - PTLibrary';
 				var baseRef = '../../../../';
 				window.onload = configPage;
 			--></script>
 <table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
 <tr>
-<td align="left" class="titleTableTitle">VisTrack</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?edu/iu/vis/utils/RectangleUtil.html&amp;edu/iu/vis/utils/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
+<td align="left" class="titleTableTitle">PTLibrary</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?edu/iu/vis/utils/RectangleUtil.html&amp;edu/iu/vis/utils/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
 </tr>
 <tr class="titleTableRow2">
 <td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;RectangleUtil</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#methodSummary">Methods</a></td>
@@ -39,7 +39,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 </table>
 <p></p>
-<p></p>
+  The RectangleUtil class defines general, static utility functions for Rectangle objects.
+  
+  <p></p>
 <br>
 <hr>
 </div>
@@ -54,49 +56,56 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#AnyRectangleContainsRectangle()">AnyRectangleContainsRectangle</a>(rect:Rectangle, rectangles:Array):Boolean</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Determines if a Rectangle is contained within any Rectangles contained in an array of Rectangles.</div>
 </td><td class="summaryTableOwnerCol">RectangleUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#AnySidesIntersect()">AnySidesIntersect</a>(rect1:Rectangle, rect2:Rectangle):Boolean</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Determines if any comparable sides of two Rectangles intersect.</div>
 </td><td class="summaryTableOwnerCol">RectangleUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#ApproachingSquare()">ApproachingSquare</a>(rect:Rectangle, deviance:Number = 0):Boolean</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Determines if a Rectangle's sides are of equivalent length within some given percentage of deviance.</div>
 </td><td class="summaryTableOwnerCol">RectangleUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#Boundless()">Boundless</a>(rect:Rectangle, minBounds:Rectangle = null, useMinArea:Boolean = false):Boolean</div>
-<div class="summaryTableDescription">[static]</div>
+<a class="signatureLink" href="#Boundless()">Boundless</a>(rect:Rectangle, minRect:Rectangle = null, useMinArea:Boolean = false):Boolean</div>
+<div class="summaryTableDescription">[static]
+   Determines if a Rectangle's dimensions (default) or surface area is beneath a given threshold.</div>
 </td><td class="summaryTableOwnerCol">RectangleUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#Centroid()">Centroid</a>(bounds:Rectangle):Point</div>
-<div class="summaryTableDescription">[static]</div>
+<a class="signatureLink" href="#Centroid()">Centroid</a>(rect:Rectangle):Point</div>
+<div class="summaryTableDescription">[static]
+   Calculates the centroid (middlepoint) of a Rectangle.</div>
 </td><td class="summaryTableOwnerCol">RectangleUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#Radius()">Radius</a>(rect:Rectangle):Number</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Calculates the radius of a Rectangle as if the Rectangle shared the same dimensions with a circle.</div>
 </td><td class="summaryTableOwnerCol">RectangleUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#RemoveNestedRectangles()">RemoveNestedRectangles</a>(rectangles:Array):Array</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Removes any Rectangles contained within any others in an array of Rectangles.</div>
 </td><td class="summaryTableOwnerCol">RectangleUtil</td>
 </tr>
 </table>
@@ -115,23 +124,31 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function AnyRectangleContainsRectangle(rect:Rectangle, rectangles:Array):Boolean</code><span class="label">Parameters</span>
+<code>public static function AnyRectangleContainsRectangle(rect:Rectangle, rectangles:Array):Boolean</code><p>
+   Determines if a Rectangle is contained within any Rectangles contained in an array of Rectangles.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code></td>
+<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; A Rectangle to be compared.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">rectangles</span>:Array</code></td>
+<td width="20px"></td><td><code><span class="label">rectangles</span>:Array</code> &mdash; An array of Rectangle objects.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Boolean</code></td>
+<td width="20"></td><td><code>Boolean</code> &mdash; Returns a Boolean.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -142,23 +159,31 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function AnySidesIntersect(rect1:Rectangle, rect2:Rectangle):Boolean</code><span class="label">Parameters</span>
+<code>public static function AnySidesIntersect(rect1:Rectangle, rect2:Rectangle):Boolean</code><p>
+   Determines if any comparable sides of two Rectangles intersect.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">rect1</span>:Rectangle</code></td>
+<td width="20px"></td><td><code><span class="label">rect1</span>:Rectangle</code> &mdash; A Rectangle to compare with rect2.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">rect2</span>:Rectangle</code></td>
+<td width="20px"></td><td><code><span class="label">rect2</span>:Rectangle</code> &mdash; A Rectangle to compare with rect1.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Boolean</code></td>
+<td width="20"></td><td><code>Boolean</code> &mdash; Returns a Boolean.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -169,23 +194,33 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function ApproachingSquare(rect:Rectangle, deviance:Number = 0):Boolean</code><span class="label">Parameters</span>
+<code>public static function ApproachingSquare(rect:Rectangle, deviance:Number = 0):Boolean</code><p>
+   Determines if a Rectangle's sides are of equivalent length within some given percentage of deviance.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code></td>
+<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; The referenced Rectangle.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">deviance</span>:Number</code> (default = <code>0</code>)<code></code></td>
+<td width="20px"></td><td><code><span class="label">deviance</span>:Number</code> (default = <code>0</code>)<code></code> &mdash; A percentage (<code>0 ... 1</code>) indicating how close the sides' length must match.
+   A value of <code>0</code> means the width and height must be equivalent. A value of <code>.5</code>
+   means a side could be up to 50% smaller or larger than the other side.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Boolean</code></td>
+<td width="20"></td><td><code>Boolean</code> &mdash; Returns a Boolean.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -196,29 +231,40 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function Boundless(rect:Rectangle, minBounds:Rectangle = null, useMinArea:Boolean = false):Boolean</code><span class="label">Parameters</span>
+<code>public static function Boundless(rect:Rectangle, minRect:Rectangle = null, useMinArea:Boolean = false):Boolean</code><p>
+   Determines if a Rectangle's dimensions (default) or surface area is beneath a given threshold.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code></td>
+<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; A Rectangle to be compared.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">minBounds</span>:Rectangle</code> (default = <code>null</code>)<code></code></td>
+<td width="20px"></td><td><code><span class="label">minRect</span>:Rectangle</code> (default = <code>null</code>)<code></code> &mdash; A Rectangle setting the threhold to compare rect.
+   If not provided, minRect is assumed as a default Rectangle with zero width and hight.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">useMinArea</span>:Boolean</code> (default = <code>false</code>)<code></code></td>
+<td width="20px"></td><td><code><span class="label">useMinArea</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; If <code>false</code> (default), compares the two Rectangles according to dimensions.
+   If <code>true</code>, compares the two Rectangles according to surface area.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Boolean</code></td>
+<td width="20"></td><td><code>Boolean</code> &mdash; Returns a Boolean.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -229,17 +275,24 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function Centroid(bounds:Rectangle):Point</code><span class="label">Parameters</span>
+<code>public static function Centroid(rect:Rectangle):Point</code><p>
+   Calculates the centroid (middlepoint) of a Rectangle.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">bounds</span>:Rectangle</code></td>
+<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; The referenced Rectangle.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Point</code></td>
+<td width="20"></td><td><code>Point</code> &mdash; Returns the Rectangle's centroid as a Point.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -250,17 +303,24 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function Radius(rect:Rectangle):Number</code><span class="label">Parameters</span>
+<code>public static function Radius(rect:Rectangle):Number</code><p>
+   Calculates the radius of a Rectangle as if the Rectangle shared the same dimensions with a circle.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code></td>
+<td width="20px"></td><td><code><span class="label">rect</span>:Rectangle</code> &mdash; The referenced Rectangle.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Number</code></td>
+<td width="20"></td><td><code>Number</code> &mdash; Returns the radius as a Number.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -271,17 +331,24 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function RemoveNestedRectangles(rectangles:Array):Array</code><span class="label">Parameters</span>
+<code>public static function RemoveNestedRectangles(rectangles:Array):Array</code><p>
+   Removes any Rectangles contained within any others in an array of Rectangles.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">rectangles</span>:Array</code></td>
+<td width="20px"></td><td><code><span class="label">rectangles</span>:Array</code> &mdash; An array of Rectangle objects.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Array</code></td>
+<td width="20"></td><td><code>Array</code> &mdash; Returns the original, modified array of Rectangle objects.
+   
+   </td>
 </tr>
 </table>
 </div>

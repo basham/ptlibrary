@@ -10,13 +10,13 @@
 <body>
 <script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
 <!--
-				asdocTitle = 'TrigUtil - VisTrack';
+				asdocTitle = 'TrigUtil - PTLibrary';
 				var baseRef = '../../../../';
 				window.onload = configPage;
 			--></script>
 <table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
 <tr>
-<td align="left" class="titleTableTitle">VisTrack</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?edu/iu/vis/utils/TrigUtil.html&amp;edu/iu/vis/utils/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
+<td align="left" class="titleTableTitle">PTLibrary</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?edu/iu/vis/utils/TrigUtil.html&amp;edu/iu/vis/utils/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
 </tr>
 <tr class="titleTableRow2">
 <td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;TrigUtil</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#methodSummary">Methods</a></td>
@@ -39,7 +39,9 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 </tr>
 </table>
 <p></p>
-<p></p>
+  The TrigUtil class defines general, static utility functions for Trigonometry calculations.
+  
+  <p></p>
 <br>
 <hr>
 </div>
@@ -54,63 +56,72 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#AvgPoint()">AvgPoint</a>(points:Array):Point</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Calculates the average, mean coordinates of a Point from an array of Points.</div>
 </td><td class="summaryTableOwnerCol">TrigUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#Degrees()">Degrees</a>(radians:Number):Number</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Calculates angle degrees from a radian value.</div>
 </td><td class="summaryTableOwnerCol">TrigUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#DegreesFromOrigin()">DegreesFromOrigin</a>(origin:Point, point:Point):Number</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Calculates angle degrees from an origin to another point.</div>
 </td><td class="summaryTableOwnerCol">TrigUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#DistanceBetweenCoordinates()">DistanceBetweenCoordinates</a>(x1:Number, y1:Number, x2:Number, y2:Number):Number</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Calculates the numeric distance between any two sets of coordinates.</div>
 </td><td class="summaryTableOwnerCol">TrigUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#DistanceBetweenPoints()">DistanceBetweenPoints</a>(p1:Point, p2:Point):Number</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Calculates the numeric distance between any two points.</div>
 </td><td class="summaryTableOwnerCol">TrigUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#PointFromArc()">PointFromArc</a>(point:Point, radians:Number, arc:Number):Point</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Calculates a Point separated from an origin point by an arc distance at a given angle.</div>
 </td><td class="summaryTableOwnerCol">TrigUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#Radians()">Radians</a>(degrees:Number):Number</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Calculates angle radians from a degree value.</div>
 </td><td class="summaryTableOwnerCol">TrigUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#RadiansBetweenPoints()">RadiansBetweenPoints</a>(p1:Point, p2:Point):Number</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Calculates the radian angle between two Points.</div>
 </td><td class="summaryTableOwnerCol">TrigUtil</td>
 </tr>
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
 <a class="signatureLink" href="#RadiansFromOrigin()">RadiansFromOrigin</a>(origin:Point, point:Point):Number</div>
-<div class="summaryTableDescription">[static]</div>
+<div class="summaryTableDescription">[static]
+   Calculates angle radians from an origin to another point.</div>
 </td><td class="summaryTableOwnerCol">TrigUtil</td>
 </tr>
 </table>
@@ -129,17 +140,24 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function AvgPoint(points:Array):Point</code><span class="label">Parameters</span>
+<code>public static function AvgPoint(points:Array):Point</code><p>
+   Calculates the average, mean coordinates of a Point from an array of Points.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">points</span>:Array</code></td>
+<td width="20px"></td><td><code><span class="label">points</span>:Array</code> &mdash; An array of Point objects.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Point</code></td>
+<td width="20"></td><td><code>Point</code> &mdash; Returns the average, mean Point from the points array.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -150,17 +168,24 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function Degrees(radians:Number):Number</code><span class="label">Parameters</span>
+<code>public static function Degrees(radians:Number):Number</code><p>
+   Calculates angle degrees from a radian value.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">radians</span>:Number</code></td>
+<td width="20px"></td><td><code><span class="label">radians</span>:Number</code> &mdash; An angle value in radians.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Number</code></td>
+<td width="20"></td><td><code>Number</code> &mdash; Returns the equivalent degree value based on the radian value.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -171,23 +196,31 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function DegreesFromOrigin(origin:Point, point:Point):Number</code><span class="label">Parameters</span>
+<code>public static function DegreesFromOrigin(origin:Point, point:Point):Number</code><p>
+   Calculates angle degrees from an origin to another point.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">origin</span>:Point</code></td>
+<td width="20px"></td><td><code><span class="label">origin</span>:Point</code> &mdash; The starting Point.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">point</span>:Point</code></td>
+<td width="20px"></td><td><code><span class="label">point</span>:Point</code> &mdash; The ending Point.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Number</code></td>
+<td width="20"></td><td><code>Number</code> &mdash; Returns a Number of degrees.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -198,35 +231,45 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function DistanceBetweenCoordinates(x1:Number, y1:Number, x2:Number, y2:Number):Number</code><span class="label">Parameters</span>
+<code>public static function DistanceBetweenCoordinates(x1:Number, y1:Number, x2:Number, y2:Number):Number</code><p>
+   Calculates the numeric distance between any two sets of coordinates.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">x1</span>:Number</code></td>
+<td width="20px"></td><td><code><span class="label">x1</span>:Number</code> &mdash; The "x" coordinate of the first point.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">y1</span>:Number</code></td>
+<td width="20px"></td><td><code><span class="label">y1</span>:Number</code> &mdash; The "y" coordinate of the first point.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">x2</span>:Number</code></td>
+<td width="20px"></td><td><code><span class="label">x2</span>:Number</code> &mdash; The "x" coordinate of the second point.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">y2</span>:Number</code></td>
+<td width="20px"></td><td><code><span class="label">y2</span>:Number</code> &mdash; The "y" coordinate of the second point.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Number</code></td>
+<td width="20"></td><td><code>Number</code> &mdash; Returns the numeric distance between the two sets of coordinates.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -237,23 +280,31 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function DistanceBetweenPoints(p1:Point, p2:Point):Number</code><span class="label">Parameters</span>
+<code>public static function DistanceBetweenPoints(p1:Point, p2:Point):Number</code><p>
+   Calculates the numeric distance between any two points.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">p1</span>:Point</code></td>
+<td width="20px"></td><td><code><span class="label">p1</span>:Point</code> &mdash; The first Point distanced against the second Point.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">p2</span>:Point</code></td>
+<td width="20px"></td><td><code><span class="label">p2</span>:Point</code> &mdash; The second Point distanced against the first Point.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Number</code></td>
+<td width="20"></td><td><code>Number</code> &mdash; Returns the numeric distance between the two Points.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -264,29 +315,38 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function PointFromArc(point:Point, radians:Number, arc:Number):Point</code><span class="label">Parameters</span>
+<code>public static function PointFromArc(point:Point, radians:Number, arc:Number):Point</code><p>
+   Calculates a Point separated from an origin point by an arc distance at a given angle.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">point</span>:Point</code></td>
+<td width="20px"></td><td><code><span class="label">point</span>:Point</code> &mdash; An origin point.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">radians</span>:Number</code></td>
+<td width="20px"></td><td><code><span class="label">radians</span>:Number</code> &mdash; A radian angle directing the rotation of the arc.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">arc</span>:Number</code></td>
+<td width="20px"></td><td><code><span class="label">arc</span>:Number</code> &mdash; The distance the calculated Point must be from the origin Point.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Point</code></td>
+<td width="20"></td><td><code>Point</code> &mdash; Returns the calculated Point.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -297,17 +357,24 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function Radians(degrees:Number):Number</code><span class="label">Parameters</span>
+<code>public static function Radians(degrees:Number):Number</code><p>
+   Calculates angle radians from a degree value.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">degrees</span>:Number</code></td>
+<td width="20px"></td><td><code><span class="label">degrees</span>:Number</code> &mdash; An angle value in degrees.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Number</code></td>
+<td width="20"></td><td><code>Number</code> &mdash; Returns the equivalent radian value based on the degree value.
+   
+   </td>
 </tr>
 </table>
 </div>
@@ -318,23 +385,31 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function RadiansBetweenPoints(p1:Point, p2:Point):Number</code><span class="label">Parameters</span>
+<code>public static function RadiansBetweenPoints(p1:Point, p2:Point):Number</code><p>
+   Calculates the radian angle between two Points.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">p1</span>:Point</code></td>
+<td width="20px"></td><td><code><span class="label">p1</span>:Point</code> &mdash; A first Point.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">p2</span>:Point</code></td>
+<td width="20px"></td><td><code><span class="label">p2</span>:Point</code> &mdash; A second Point.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Number</code></td>
+<td width="20"></td><td><code>Number</code> &mdash; Returns the angle in radians.
+    
+   </td>
 </tr>
 </table>
 </div>
@@ -345,23 +420,31 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public static function RadiansFromOrigin(origin:Point, point:Point):Number</code><span class="label">Parameters</span>
+<code>public static function RadiansFromOrigin(origin:Point, point:Point):Number</code><p>
+   Calculates angle radians from an origin to another point.
+   
+   </p><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20px"></td><td><code><span class="label">origin</span>:Point</code></td>
+<td width="20px"></td><td><code><span class="label">origin</span>:Point</code> &mdash; The starting Point.
+   </td>
 </tr>
 <tr>
 <td class="paramSpacer">&nbsp;</td>
 </tr>
 <tr>
-<td width="20px"></td><td><code><span class="label">point</span>:Point</code></td>
+<td width="20px"></td><td><code><span class="label">point</span>:Point</code> &mdash; The ending Point.
+   
+   </td>
 </tr>
 </table>
 <p></p>
 <span class="label">Returns</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
-<td width="20"></td><td><code>Number</code></td>
+<td width="20"></td><td><code>Number</code> &mdash; Returns a Number of radians.
+   
+   </td>
 </tr>
 </table>
 </div>

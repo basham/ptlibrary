@@ -29,7 +29,6 @@ package edu.iu.vis.utils {
 		 * 
 		 * @return Returns the relative percentage difference of the two given values.
 		 * */
-		// 
 		public static function PercentDifferenceRange( value1:Number, value2:Number, max:Number ):Number {
 			
 			var diff:Number = Math.abs( value1 - value2 );
