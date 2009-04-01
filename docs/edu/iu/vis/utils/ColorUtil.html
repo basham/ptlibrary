@@ -1,0 +1,504 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../../../../print.css" type="text/css" media="print">
+<meta content="ColorUtil,edu.iu.vis.utils.ColorUtil,AverageColor,HexToBlue,HexToGreen,HexToHSL,HexToHue,HexToLightness,HexToRGB,HexToRed,HexToSaturation,RGBObjectToHex,RGBToHex" name="keywords">
+<title>edu.iu.vis.utils.ColorUtil</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript" src="../../../../asdoc.js"></script><script type="text/javascript" language="javascript" src="../../../../cookies.js"></script><script type="text/javascript" language="javascript">
+<!--
+				asdocTitle = 'ColorUtil - PTLibrary';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<table style="display:none" id="titleTable" cellspacing="0" cellpadding="0" class="titleTable">
+<tr>
+<td align="left" class="titleTableTitle">PTLibrary</td><td align="right" class="titleTableTopNav"><a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../package-summary.html">All&nbsp;Packages</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../all-classes.html')" href="../../../../class-summary.html">All&nbsp;Classes</a>&nbsp;|&nbsp;<a onclick="loadClassListFrame('../../../../index-list.html')" href="../../../../all-index-A.html">Index</a>&nbsp;|&nbsp;<a href="../../../../index.html?edu/iu/vis/utils/ColorUtil.html&amp;edu/iu/vis/utils/class-list.html" id="framesLink1">Frames</a><a onclick="parent.location=document.location" href="" style="display:none" id="noFramesLink1">No&nbsp;Frames</a></td><td rowspan="3" align="right" class="titleTableLogo"><img alt="Adobe Logo" title="Adobe Logo" class="logoImage" src="../../../../images/logo.jpg"></td>
+</tr>
+<tr class="titleTableRow2">
+<td align="left" id="subTitle" class="titleTableSubTitle">Class&nbsp;ColorUtil</td><td align="right" id="subNav" class="titleTableSubNav"><a href="#methodSummary">Methods</a></td>
+</tr>
+<tr class="titleTableRow3">
+<td colspan="2">&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript">
+<!--
+if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Class ColorUtil"); titleBar_setSubNav(false,false,false,false,false,false,true,false,false,false,false,false,false,false);}
+--></script>
+<div class="MainContent">
+<table cellspacing="0" cellpadding="0" class="classHeaderTable">
+<tr>
+<td class="classHeaderTableLabel">Package</td><td><a onclick="javascript:loadClassListFrame('class-list.html')" href="package-detail.html">edu.iu.vis.utils</a></td>
+</tr>
+<tr>
+<td class="classHeaderTableLabel">Class</td><td class="classSignature">public class ColorUtil</td>
+</tr>
+</table>
+<p></p>
+  The ColorUtil class defines general, static utility functions for color calculations, conversions.
+  
+  <p></p>
+<br>
+<hr>
+</div>
+<a name="methodSummary"></a>
+<div class="summarySection">
+<div class="summaryTableTitle">Public Methods</div>
+<table id="summaryTableMethod" class="summaryTable " cellpadding="3" cellspacing="0">
+<tr>
+<th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined&nbsp;by</th>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#AverageColor()">AverageColor</a>(sourceBitmapData:BitmapData, clipRect:Rectangle = null):uint</div>
+<div class="summaryTableDescription">[static]
+   Calculates the average hexidecimal color from a BitmapData instance.</div>
+</td><td class="summaryTableOwnerCol">ColorUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#HexToBlue()">HexToBlue</a>(hex:uint):uint</div>
+<div class="summaryTableDescription">[static]
+   Finds the hexidecimal Blue color value from a 16-bit hexidecimal color.</div>
+</td><td class="summaryTableOwnerCol">ColorUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#HexToGreen()">HexToGreen</a>(hex:uint):uint</div>
+<div class="summaryTableDescription">[static]
+   Finds the hexidecimal Green color value from a 16-bit hexidecimal color.</div>
+</td><td class="summaryTableOwnerCol">ColorUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#HexToHSL()">HexToHSL</a>(hex:uint):Object</div>
+<div class="summaryTableDescription">[static]
+   Converts a hexidecimal color to equivalent HSL values.</div>
+</td><td class="summaryTableOwnerCol">ColorUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#HexToHue()">HexToHue</a>(hex:uint):Number</div>
+<div class="summaryTableDescription">[static]
+   Calculates the Hue from a hexidecimal color.</div>
+</td><td class="summaryTableOwnerCol">ColorUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#HexToLightness()">HexToLightness</a>(hex:uint):Number</div>
+<div class="summaryTableDescription">[static]
+   Calculates the Lightness, i.e.</div>
+</td><td class="summaryTableOwnerCol">ColorUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#HexToRed()">HexToRed</a>(hex:uint):uint</div>
+<div class="summaryTableDescription">[static]
+   Finds the hexidecimal Red color value from a 16-bit hexidecimal color.</div>
+</td><td class="summaryTableOwnerCol">ColorUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#HexToRGB()">HexToRGB</a>(hex:uint):Object</div>
+<div class="summaryTableDescription">[static]
+   Converts a hexidecimal color to equivalent RGB values.</div>
+</td><td class="summaryTableOwnerCol">ColorUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#HexToSaturation()">HexToSaturation</a>(hex:uint):Number</div>
+<div class="summaryTableDescription">[static]
+   Calculates the Saturation from a hexidecimal color.</div>
+</td><td class="summaryTableOwnerCol">ColorUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#RGBObjectToHex()">RGBObjectToHex</a>(rgb:Object):uint</div>
+<div class="summaryTableDescription">[static]
+   Converts an RGB Object to a 16-bit hexidecimal color value.</div>
+</td><td class="summaryTableOwnerCol">ColorUtil</td>
+</tr>
+<tr class="">
+<td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
+<div class="summarySignature">
+<a class="signatureLink" href="#RGBToHex()">RGBToHex</a>(red:uint, green:uint, blue:uint):uint</div>
+<div class="summaryTableDescription">[static]
+   Converts an RGB value set to a 16-bit hexidecimal color value.</div>
+</td><td class="summaryTableOwnerCol">ColorUtil</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript" language="javascript">
+<!--
+showHideInherited();
+--></script>
+<div class="MainContent">
+<a name="methodDetail"></a>
+<div class="detailSectionHeader">Method detail</div>
+<a name="AverageColor()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">AverageColor</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function AverageColor(sourceBitmapData:BitmapData, clipRect:Rectangle = null):uint</code><p>
+   Calculates the average hexidecimal color from a BitmapData instance.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">sourceBitmapData</span>:BitmapData</code> &mdash; A referenced BitmapData instance.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">clipRect</span>:Rectangle</code> (default = <code>null</code>)<code></code> &mdash; A Rectangle indicating the area from the referenced BitmapData to find the average color.
+   If no Rectangle is provided, the entire BitmapData area is utilized.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>uint</code> &mdash; Returns a 16-bit hexidecimal color.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://blog.soulwire.co.uk/flash/actionscript-3/extract-average-colours-from-bitmapdata/" target="mm_external">http://blog.soulwire.co.uk/flash/actionscript-3/extract-average-colours-from-bitmapdata/</a>
+</div>
+</div>
+<a name="HexToBlue()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">HexToBlue</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function HexToBlue(hex:uint):uint</code><p>
+   Finds the hexidecimal Blue color value from a 16-bit hexidecimal color.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">hex</span>:uint</code> &mdash; A hexidecimal color.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>uint</code> &mdash; Returns a 4-bit hexidecimal value with ranges <code>[0, 255]</code>.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="HexToGreen()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">HexToGreen</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function HexToGreen(hex:uint):uint</code><p>
+   Finds the hexidecimal Green color value from a 16-bit hexidecimal color.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">hex</span>:uint</code> &mdash; A hexidecimal color.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>uint</code> &mdash; Returns a 4-bit hexidecimal value with ranges <code>[0, 255]</code>.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="HexToHSL()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">HexToHSL</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function HexToHSL(hex:uint):Object</code><p>
+   Converts a hexidecimal color to equivalent HSL values.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">hex</span>:uint</code> &mdash; A hexidecimal color.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Object</code> &mdash; Returns an Object containing values <code>{ h: hue [0, 360], s: saturation [0, 1], l: lightness [0, 1] }</code>.
+   
+   </td>
+</tr>
+</table>
+<p>
+<span class="label">See also</span>
+</p>
+<div class="seeAlso">
+<a href="http://en.wikipedia.org/wiki/HSV_color_space#Conversion_from_RGB_to_HSL_or_HSV" target="mm_external">http://en.wikipedia.org/wiki/HSV_color_space#Conversion_from_RGB_to_HSL_or_HSV</a>
+</div>
+</div>
+<a name="HexToHue()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">HexToHue</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function HexToHue(hex:uint):Number</code><p>
+   Calculates the Hue from a hexidecimal color.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">hex</span>:uint</code> &mdash; A hexidecimal color.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code> &mdash; Returns a Hue Number value with ranges <code>[0, 360]</code>.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="HexToLightness()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">HexToLightness</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function HexToLightness(hex:uint):Number</code><p>
+   Calculates the Lightness, i.e. percentage of white, from a hexidecimal color.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">hex</span>:uint</code> &mdash; A hexidecimal color.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code> &mdash; Returns a Lightness Number value with ranges <code>[0, 1]</code>.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="HexToRed()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">HexToRed</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function HexToRed(hex:uint):uint</code><p>
+   Finds the hexidecimal Red color value from a 16-bit hexidecimal color.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">hex</span>:uint</code> &mdash; A hexidecimal color.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>uint</code> &mdash; Returns a 4-bit hexidecimal value with ranges <code>[0, 255]</code>.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="HexToRGB()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">HexToRGB</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function HexToRGB(hex:uint):Object</code><p>
+   Converts a hexidecimal color to equivalent RGB values.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">hex</span>:uint</code> &mdash; A hexidecimal color.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Object</code> &mdash; Returns an Object containing values <code>{ r: red [0, 255], g: green [0, 255], b: blue [0, 255] }</code>.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="HexToSaturation()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">HexToSaturation</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function HexToSaturation(hex:uint):Number</code><p>
+   Calculates the Saturation from a hexidecimal color.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">hex</span>:uint</code> &mdash; A hexidecimal color.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>Number</code> &mdash; Returns a Saturation Number value with ranges <code>[0, 1]</code>.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="RGBObjectToHex()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">RGBObjectToHex</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function RGBObjectToHex(rgb:Object):uint</code><p>
+   Converts an RGB Object to a 16-bit hexidecimal color value.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">rgb</span>:Object</code> &mdash; A RGB Object structured as <code>{ r: red, g: green, b: blue }</code>.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>uint</code> &mdash; Returns a 16-bit hexidecimal color value.
+   
+   </td>
+</tr>
+</table>
+</div>
+<a name="RGBToHex()"></a>
+<table cellspacing="0" cellpadding="0" class="detailHeader">
+<tr>
+<td class="detailHeaderName">RGBToHex</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td>
+</tr>
+</table>
+<div class="detailBody">
+<code>public static function RGBToHex(red:uint, green:uint, blue:uint):uint</code><p>
+   Converts an RGB value set to a 16-bit hexidecimal color value.
+   
+   </p><span class="label">Parameters</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20px"></td><td><code><span class="label">red</span>:uint</code> &mdash; A 4-bit hexidecimal value with ranges <code>[0, 255]</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">green</span>:uint</code> &mdash; A 4-bit hexidecimal value with ranges <code>[0, 255]</code>.
+   </td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">blue</span>:uint</code> &mdash; A 4-bit hexidecimal value with ranges <code>[0, 255]</code>.
+   
+   </td>
+</tr>
+</table>
+<p></p>
+<span class="label">Returns</span>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="20"></td><td><code>uint</code> &mdash; Returns a 16-bit hexidecimal color value.
+   
+   </td>
+</tr>
+</table>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<p></p>
+<center class="copyright"> 
+</center>
+</div>
+</body>
+</html>
+<!-- -->
