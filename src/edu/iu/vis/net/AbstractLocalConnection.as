@@ -38,12 +38,16 @@ package edu.iu.vis.net {
 			return _connected;
 		}
 		
+		protected function set connected( value:Boolean ):void {
+			_connected = value;
+		}
+		
 		protected function connect():void {
 			try {
 		    	connection.connect(connectionName);
 			}
-			catch (error:ArgumentError) {
-		    	trace("Error:" + error.message);
+			catch ( error:ArgumentError ) {
+		    	trace( error.message );
 			}
 		}
 		
@@ -62,6 +66,15 @@ package edu.iu.vis.net {
 		
 		protected function onAsyncError( e:AsyncErrorEvent ):void {
 			trace(e);
+		}
+		
+		public function close():void {
+			try {
+				this.connection.close();
+			}
+			catch ( error:ArgumentError ) {
+				trace( error.message );
+			}
 		}
 		
 	}
