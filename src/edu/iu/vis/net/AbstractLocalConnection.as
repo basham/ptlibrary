@@ -12,7 +12,7 @@ package edu.iu.vis.net {
 		protected var connection:LocalConnection;
 		
 		private var _connectionName:String = '';
-		private var _connected:Boolean = false;
+		protected var _connected:Boolean = false;
 		
 		public function AbstractLocalConnection( connectionName:String, autoConnect:Boolean = false ) {
 			this.autoConnect = autoConnect;
@@ -44,7 +44,7 @@ package edu.iu.vis.net {
 		
 		protected function connect():void {
 			try {
-		    	connection.connect(connectionName);
+		    	connection.connect( connectionName );
 			}
 			catch ( error:ArgumentError ) {
 		    	trace( error.message );
@@ -71,6 +71,7 @@ package edu.iu.vis.net {
 		public function close():void {
 			try {
 				this.connection.close();
+				_connected = false;
 			}
 			catch ( error:ArgumentError ) {
 				trace( error.message );
