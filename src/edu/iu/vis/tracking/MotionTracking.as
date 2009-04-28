@@ -77,10 +77,11 @@ package edu.iu.vis.tracking {
 			contrastBlur( diffTrackingData );
 		}
 		
-		public function graph():RegionAdjacencyGraph {
-			var rag:RegionAdjacencyGraph = new RegionAdjacencyGraph( filteredBitmapData );
+		public function graph( printBounds:Boolean = false ):RegionAdjacencyGraph {
+			var rag:RegionAdjacencyGraph = new RegionAdjacencyGraph( filteredBitmapData, true );
 			rag.graph();
-			rag.printBounds();
+			if ( printBounds )
+				rag.printBounds();
 			//trace( rag.toString() );
 			return rag;
 		}

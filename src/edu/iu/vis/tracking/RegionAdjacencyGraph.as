@@ -18,6 +18,7 @@ package edu.iu.vis.tracking {
 		
 		static public var UniqueColor:uint = 0xFF0000;
 		static public var Colors:Array = new Array( 0xFF00FF00, 0xFF0000FF );
+		//static public var FinalColors:Array = new Array( 0xFFFFFFFF, 0xFF000000 );
 		
 		public function RegionAdjacencyGraph( source:BitmapData, copySource:Boolean = false ):void {
 			this.source = source;
